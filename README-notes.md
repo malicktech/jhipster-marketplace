@@ -75,27 +75,48 @@ docker container ps -a
 docker container stats $(docker container ps --format={{.Names}})
 
 # Sonar
+
+https://jhipster.github.io/code-quality/
 https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Maven
+https://github.com/SonarSource/sonar-scanner-maven
 
 1. define sonar.host.url in the GLobal Maven Setting 
 2. add sonar-maven-plugin in pom.xml 
 
-A Docker Compose configuration is generated for running Sonar:
-
-	- sudo docker-compose -f src/main/docker/sonar.yml up -d
 
 To analyze your code, run Sonar on your project:
 
 	- With Maven: ./mvnw sonar:sonar
 
 The Sonar reports will be available at (docker_marketplacejhipster-sonar_1): 
-	http://localhost:9000
-	login : admin/admin
+	
+	Local:
+		http://localhost:9100
+		login : admin/admin
 
+	VPS:
+		http://vps365425.ovh.net:9000
+		login : admin/admin
 
+# Jenkins
 
-* analyze
-/.mvnw sonar:sonar
+test jenkins localy
+
+* jenkins will be available at :
+
+	Local:
+		url : http://localhost:49001
+		login : citizenjenkins / aqwzsx123
+
+	VPS:
+		url : http://vps365425.ovh.net:8080
+		login : citizendiop/mySNEjenkins123
+		
+* https://hub.docker.com/_/jenkins/
+
+	docker-compose -f src/main/docker/jenkins.yml up -d
+	jenkins will be available at : http://localhost:49001
+
 
 # CI/CD
 
@@ -121,23 +142,6 @@ https://jhipster.github.io/setting-up-ci/
 
 - Jenkins Credentials ID : default (docker login)
 
-
-* test jenkins localy
-
-https://hub.docker.com/_/jenkins/
-
-	docker-compose -f src/main/docker/jenkins.yml up -d
-
-	jenkins will be available at : http://localhost:49001
-
-	docker-compose -f src/main/docker/jenkins.yml up down
-
-sudo chown 1000 ~/Docker_volumes/jenkins_home
-
-# TODO
-integration of Docker HUB + Bitbucket + jenkins
-https://mail.google.com/mail/u/0/#search/docker/15ba1565ecfb516b
-
 # credentiels
 
 * hub.docker.com
@@ -146,6 +150,9 @@ https://mail.google.com/mail/u/0/#search/docker/15ba1565ecfb516b
 	aqwzsx123
 
 	private repo : 
+	
+* Bitbucket :
+	
 
 # link 
 https://hub.docker.com/r/jhipster/jhipster-sample-app/
@@ -155,9 +162,9 @@ https://hub.docker.com/r/jhipster/jhipster-sample-app/
  
 # TODO
 
-* set up Dev Enviromment
-	set up local jenkins and sonar : config project with this 
-	
+integration of Docker HUB + Bitbucket + jenkins
+https://mail.google.com/mail/u/0/#search/docker/15ba1565ecfb516b
+
 Setup production Staging & environment
 
 volume & container data only ?
@@ -169,6 +176,10 @@ git push origin staging > to deploy in test:staging
  create docker image
  
 # DONE to mark
+set up Dev Enviromment
+	set up local jenkins and sonar
+	setup local CI/CD
+	
  interface de monitoring  des applis
  interface admin 
  web service crud
