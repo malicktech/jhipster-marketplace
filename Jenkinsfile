@@ -57,7 +57,7 @@ node {
 		
 		// sh "./mvnw sonar:sonar  -Dsonar.host.url=http://my.server:9100"
 		
-		sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+		sh './mvnw org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
             }
         }
     }
