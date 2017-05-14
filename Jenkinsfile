@@ -52,7 +52,12 @@ node {
         stage('SonarQube quality analysis') {
         	// requires SonarQube Scanner for Maven 3.2+ 
             withSonarQubeEnv('MySonarServer') { // from Manage Jenkins > Configure system > SonarQube servers > name
-                sh "./mvnw sonar:sonar"
+                
+		// sh "./mvnw sonar:sonar"
+		
+		// sh "./mvnw sonar:sonar  -Dsonar.host.url=http://my.server:9100"
+		
+		sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
             }
         }
     }
