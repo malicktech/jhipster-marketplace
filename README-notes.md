@@ -34,7 +34,8 @@ https://jhipster.github.io/docker-compose/
 	$ mvn package -Pprod docker:build
 	$ docker-compose -f src/main/docker/mysql.yml up -d
 	$ docker-compose -f src/main/docker/mysql.yml down
-	$ docker-compose -f src/main/docker/app.yml up
+	
+	$ docker-compose -f src/main/docker/app.yml up -d
 	```
 	
 	sudo docker-compose -f src/main/docker/app.yml down
@@ -76,13 +77,14 @@ docker container stats $(docker container ps --format={{.Names}})
 
 # Sonar
 
+execute a "SonarQube Scanner" Step within my Jenkins 2.x Pipeline :
+
 https://jhipster.github.io/code-quality/
-https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Maven
+https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins
 https://github.com/SonarSource/sonar-scanner-maven
 
-1. define sonar.host.url in the GLobal Maven Setting 
-2. add sonar-maven-plugin in pom.xml 
-
+Confiure Jenkins global configuration - Manage Jenkins > Configure system > SonarQube servers
+Config jenkins scanner - Manage Jenkins > Global Tool Configuration
 
 To analyze your code, run Sonar on your project:
 
@@ -97,6 +99,8 @@ The Sonar reports will be available at (docker_marketplacejhipster-sonar_1):
 	VPS:
 		http://vps365425.ovh.net:9000
 		login : admin/admin
+
+
 
 # Jenkins
 
@@ -119,6 +123,8 @@ test jenkins localy
 
 
 # CI/CD
+
+Jenkins Pipeline + SonarQube Scanner for Maven
 
 https://jhipster.github.io/setting-up-ci/
 
@@ -175,12 +181,27 @@ git push origin staging > to deploy in test:staging
  run our tests using maven
  create docker image
  
+- Set up jhipster console - ELK
+https://blog.netapsys.fr/vos-logs-passent-la-seconde-avec-elk-elasticsearch-logstash-kibana/comment-page-1/
+https://wooster.checkmy.ws/2014/04/elk-elasticsearch-logstash-kibana/
+https://www.monitoring-fr.org/2016/04/ne-dites-plus-elk-mais-the-elastic-stack/
+ 
 # DONE to mark
 set up Dev Enviromment
 	set up local jenkins and sonar
+	add jenkins user to docker
 	setup local CI/CD
 	
  interface de monitoring  des applis
  interface admin 
  web service crud
+ 
+ # workflow
+ 
+ Lancher le server de dév avec live-relaod :
+ > yarn install
+ 
+ Linter le code TypeScript
+ > yarn run lint
+ > yarn run lint:fix
  
