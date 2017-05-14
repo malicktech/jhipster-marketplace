@@ -48,8 +48,10 @@ node {
             archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
         }
 
-        stage('quality analysis') {
-            withSonarQubeEnv('Sonar') {
+	
+        stage('SonarQube quality analysis') {
+        	// requires SonarQube Scanner for Maven 3.2+ 
+            withSonarQubeEnv('MySonarServer') { // from Manage Jenkins > Configure system > SonarQube servers > name
                 sh "./mvnw sonar:sonar"
             }
         }
