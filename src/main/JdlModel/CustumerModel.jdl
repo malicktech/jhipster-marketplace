@@ -6,8 +6,8 @@
 
 /**
  * Csutomer
- * Extend jhispter user
- *  inherit from User
+ * Extend jhispter user : on-to-one relatioship, not inherit
+ * Allow to not touch the origin entity USer, who will be updatable
  * 
  * 
  */

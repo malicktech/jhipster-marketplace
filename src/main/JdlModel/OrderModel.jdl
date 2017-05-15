@@ -29,6 +29,7 @@ entity Payment {
 	id Integer,
 	date Date,
 	amount Double
+	paymentType PaymentType
 }
 enum PaymentType {
 	CARD, MOBILE, ONLINESYSTEM

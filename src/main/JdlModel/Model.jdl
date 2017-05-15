@@ -1,3 +1,6 @@
+// ------------------------------------------------------------------ 
+// OPERATOR
+// ------------------------------------------------------------------ 
 /**
  * Operator entity
  */ 
@@ -10,6 +13,9 @@ entity Operator {
 	gender Gender required
 }
 
+// ------------------------------------------------------------------ 
+// CUSTOMER
+// ------------------------------------------------------------------ 
 /**
  * Customer
  */
@@ -32,6 +38,9 @@ entity Country {
 	countryName String
 }
 
+// ------------------------------------------------------------------ 
+// MARKETPLACE
+// ------------------------------------------------------------------ 
 /**
  * Market entity 
  */
@@ -55,7 +64,10 @@ entity MarketInfo {
 	key String
     value String
 }
- 
+
+// ------------------------------------------------------------------ 
+// ORDER
+// ------------------------------------------------------------------ 
 /**
  * Order entity
  */
@@ -75,20 +87,28 @@ entity Payment {
 	id Integer
 	date LocalDate
 	amount Double
+	paymentType PaymentType
 }
 enum PaymentType {
 	CARD, MOBILE, ONLINESYSTEM
 }
 entity MarketOrderItems {
-	title String required,
-    description String,
-	price BigDecimal,
-	img ImageBlob ,
+	title String required
+    description String
+	price BigDecimal
+	img ImageBlob
 	name String
 	// quantity Integer
 }
 
+
+// ------------------------------------------------------------------ 
+// RELATIOSHIPS
+// ------------------------------------------------------------------ 
 // Defining relationships
+
+// TODO - FACTORISE IN multiple line declartion
+
 relationship OneToOne{
     Customer{user} to User
 }
@@ -128,22 +148,26 @@ relationship OneToMany {
 }
 
 
-
+// ------------------------------------------------------------------ 
 // PAGINATION options
+// ------------------------------------------------------------------ 
+// "Pager" depracated in angular 2, 
+// options : pagination, infinite-scroll
 
 paginate MarketOrderItems, Customer with infinite-scroll
 paginate Operator,MarketOrder with pagination
-paginate Market with pager
 
-// SERVICE
+// ------------------------------------------------------------------ 
+// SERVICE	
+// ------------------------------------------------------------------ 
+
+// todo - no need, delete 
+
 // no service for Customer 
 // will create a resource class which will call the repository interface directly.
 
 // Set service options to all except few
 // service all with serviceImpl except MarketInfo, ProductCategory
-
-// SERVICE	
-// todo - no need, delete 
 
 // will make the resource call the service class which will call the repository interface
 service Market with serviceClass
@@ -152,10 +176,13 @@ service Market with serviceClass
 // will make a service interface which will be used by the resource class. The interface is implemented by an impl class which will call the repository interface.
 service ProductCategory with serviceImpl
 
+// ------------------------------------------------------------------ 
 // SERIVCE MASS OPTION-  Set DTO
+// ------------------------------------------------------------------ 
+
 // dto * with mapstruct except MarketInfo // error
 dto * with mapstruct
 
 
 // Set an angular suffix
-angularSuffix * with mySuffix
+// angularSuffix * with mySuffix
