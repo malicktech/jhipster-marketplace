@@ -1,0 +1,49 @@
+
+<div *ngIf="customerAddress">
+    <h2><span jhiTranslate="marketplacejhipsterApp.customerAddress.detail.title">Customer Address</span> {{customerAddress.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="marketplacejhipsterApp.customerAddress.streetAddress">Street Address</span></dt>
+        <dd>
+            <span>{{customerAddress.streetAddress}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketplacejhipsterApp.customerAddress.city">City</span></dt>
+        <dd>
+            <span>{{customerAddress.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketplacejhipsterApp.customerAddress.postalCode">Postal Code</span></dt>
+        <dd>
+            <span>{{customerAddress.postalCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketplacejhipsterApp.customerAddress.stateProvince">State Province</span></dt>
+        <dd>
+            <span>{{customerAddress.stateProvince}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketplacejhipsterApp.customerAddress.country">Country</span></dt>
+        <dd>
+            <div *ngIf="customerAddress.countryId">
+                <a [routerLink]="['/country-my-suffix', customerAddress.countryId]">{{customerAddress.countryId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="marketplacejhipsterApp.customerAddress.customer">Customer</span></dt>
+        <dd>
+            <div *ngIf="customerAddress.customerId">
+                <a [routerLink]="['/customer-my-suffix', customerAddress.customerId]">{{customerAddress.customerId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'customer-address-my-suffix/'+ customerAddress.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

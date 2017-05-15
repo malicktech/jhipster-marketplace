@@ -5,6 +5,25 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150759_added_entity_Operator.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150800_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150801_added_entity_CustomerAddress.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150802_added_entity_Region.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150803_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150804_added_entity_Market.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150805_added_entity_ProductCategory.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150806_added_entity_MarketInfo.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150807_added_entity_MarketOrder.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150808_added_entity_Payment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150809_added_entity_MarketOrderItems.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20170515150759_added_entity_constraints_Operator.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150800_added_entity_constraints_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150801_added_entity_constraints_CustomerAddress.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150803_added_entity_constraints_Country.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150805_added_entity_constraints_ProductCategory.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150806_added_entity_constraints_MarketInfo.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150807_added_entity_constraints_MarketOrder.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515150809_added_entity_constraints_MarketOrderItems.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

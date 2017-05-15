@@ -1,0 +1,28 @@
+{
+    "marketplacejhipsterApp": {
+        "marketOrderItems" : {
+            "home": {
+                "title": "MarketOrderItems",
+                "createLabel": "Créer un nouveau Market Order Items",
+                "createOrEditLabel": "Créer ou éditer un Market Order Items",
+                "search": "Recherche pour Market Order Items"
+            },
+            "created": "Un nouveau Market Order Items a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Market Order Items avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Market Order Items avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Market Order Items {{ id }} ?"
+            },
+            "detail": {
+                "title": "Market Order Items"
+            },
+            "title": "Title",
+            "description": "Description",
+            "price": "Price",
+            "img": "Img",
+            "name": "Name",
+            "marketOrder": "Market Order",
+            "order": "Order"
+        }
+    }
+}

@@ -43,6 +43,23 @@ public class CacheConfiguration {
             cm.createCache(fr.sne.marketplace.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(fr.sne.marketplace.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
             cm.createCache(fr.sne.marketplace.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.Operator.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.Customer.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.Customer.class.getName() + ".addresses", jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.Customer.class.getName() + ".orders", jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.CustomerAddress.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.Region.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.Country.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.Market.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.Market.class.getName() + ".infos", jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.Market.class.getName() + ".categories", jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.ProductCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.MarketInfo.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.MarketOrder.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.MarketOrder.class.getName() + ".items", jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.MarketOrder.class.getName() + ".quantities", jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.Payment.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.marketplace.domain.MarketOrderItems.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

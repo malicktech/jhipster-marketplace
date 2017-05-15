@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "order",
+            "otherEntityName": "marketOrder",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "payment"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20170515150808",
+    "entityTableName": "payment",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no",
+    "angularJSSuffix": "mySuffix"
+}

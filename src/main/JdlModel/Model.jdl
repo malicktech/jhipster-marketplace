@@ -60,7 +60,7 @@ entity MarketInfo {
  * Order entity
  */
 entity MarketOrder {
-	orderDate Date
+	orderDate LocalDate
 	date ZonedDateTime required
 	status Status required
 	remoteVirtualCardId String
@@ -73,7 +73,7 @@ entity MarketInfo {
 }
 entity Payment {
 	id Integer
-	date Date
+	date LocalDate
 	amount Double
 }
 enum PaymentType {
@@ -153,7 +153,8 @@ service Market with serviceClass
 service ProductCategory with serviceImpl
 
 // SERIVCE MASS OPTION-  Set DTO
-dto * with mapstruct except MarketInfo
+// dto * with mapstruct except MarketInfo // error
+dto * with mapstruct
 
 
 // Set an angular suffix

@@ -1,0 +1,10 @@
+{
+    "marketplacejhipsterApp": {
+        "Status" : {
+            "null": "",
+            "PAYED": "PAYED",
+            "VALIDATED": "VALIDATED",
+            "SHIPPED": "SHIPPED"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "marketplacejhipsterApp": {
+        "customerAddress" : {
+            "home": {
+                "title": "CustomerAddresses",
+                "createLabel": "Créer un nouveau Customer Address",
+                "createOrEditLabel": "Créer ou éditer un Customer Address",
+                "search": "Recherche pour Customer Address"
+            },
+            "created": "Un nouveau Customer Address a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Customer Address avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Customer Address avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Customer Address {{ id }} ?"
+            },
+            "detail": {
+                "title": "Customer Address"
+            },
+            "streetAddress": "Street Address",
+            "city": "City",
+            "postalCode": "Postal Code",
+            "stateProvince": "State Province",
+            "country": "Country",
+            "customer": "Customer"
+        }
+    }
+}
