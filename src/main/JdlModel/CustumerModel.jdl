@@ -1,0 +1,62 @@
+// Custumer has none, one or more Adress objects, and the Adresse knows its owner
+//  a Adresse can have only one cstomer owner.
+// A bidirectional one-to-many relationship : from a Adresse instance you could find its owner Customer, and from a Customer instance you could get all of its Adresse.
+// TODO : change to unidirectional - no nedd to found customer from adresse
+// this is a simple one-to-many relationship (one owner has many cars) on one side, and a many-to-one relationship (many cars have one owner) on the other side
+
+/**
+ * Csutomer
+ * Extend jhispter user
+ *  inherit from User
+ * 
+ * 
+ */
+entity Customer {
+    telephone String required
+	gender Gender required
+	dateOfBirth LocalDate required
+}
+enum Gender { MALE, FEMALE }
+
+entity CustomerAddress {
+	streetAddress String
+    city String required minlength(3)
+    postalCode String required maxlength(10)
+    stateProvince String
+}
+entity Region {
+	regionName String
+}
+
+entity Country {
+	countryName String
+}
+relationship OneToOne {
+	Country{region} to Region
+}
+
+relationship OneToOne {
+	CustomerAddress{country} to Country
+}
+
+relationship OneToMany {
+	Customer{address} to CustomerAddress{customer}
+}
+/**
+ * jhipster not support relationships from User
+ * unidirectional one-to-one
+ * On the generated AngularJS client UI you will have a dropdown in Customer to select a User since Customer is the owning side
+ */
+relationship OneToOne{
+    Customer{user} to User
+} 
+
+// SERVICE
+// no service for Customer 
+// will create a resource class which will call the repository interface directly.
+
+// PAGINATION
+paginate Customer with pagination
+paginate CustomerAddress with pager
+
+

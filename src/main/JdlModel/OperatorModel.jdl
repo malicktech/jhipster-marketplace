@@ -1,0 +1,13 @@
+// Operator
+entity Operator {
+	firstName String
+	lastName String
+	email String
+	phoneNumber String
+	hireDate ZonedDateTime
+	gender Gender required
+}
+
+relationship OneToOne{
+    User{Operator} to Operator
+} 
