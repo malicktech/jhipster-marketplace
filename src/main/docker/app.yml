@@ -5,7 +5,7 @@ services:
         environment:
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - SPRING_DATASOURCE_URL=jdbc:mysql://marketplacejhipster-mysql:3306/marketplacejhipster?useUnicode=true&characterEncoding=utf8&useSSL=false
-            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - JHIPSTER_SLEEP=60 # gives time for the database to boot before the application
             - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=marketplacejhipster-elasticsearch:9300
             - JAVA_OPTS=-Xmx512m -Xms256m # Java memory parameters to optimize memory usage for applications running in the container,
             # - _JAVA_OPTIONS=-Xmx512m -Xms256m
