@@ -5,12 +5,9 @@
  * Operator entity
  */ 
 entity Operator {
-	firstName String
-	lastName String
-	email String
-	phoneNumber String
-	hireDate ZonedDateTime
+	phoneNumber String	
 	gender Gender required
+	hireDate ZonedDateTime
 }
 
 // ------------------------------------------------------------------ 
@@ -20,7 +17,7 @@ entity Operator {
  * Customer
  */
 entity Customer {
-    telephone String required
+    phoneNumber String required
 	gender Gender required
 	dateOfBirth LocalDate required
 }
