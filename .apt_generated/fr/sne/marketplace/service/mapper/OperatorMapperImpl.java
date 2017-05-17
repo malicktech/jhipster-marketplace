@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 
     value = "org.mapstruct.ap.MappingProcessor",
 
-    date = "2017-05-15T15:16:20+0000",
+    date = "2017-05-17T16:31:43+0000",
 
     comments = "version: 1.1.0.Final, compiler: Eclipse JDT (IDE) 3.12.3.v20170228-1205, environment: Java 1.8.0_121 (Oracle Corporation)"
 
@@ -115,19 +115,19 @@ public class OperatorMapperImpl implements OperatorMapper {
 
         operator_.setUser( userMapper.userFromId( operatorDTO.getUserId() ) );
 
-        operator_.setEmail( operatorDTO.getEmail() );
+        operator_.setId( operatorDTO.getId() );
 
         operator_.setFirstName( operatorDTO.getFirstName() );
 
-        operator_.setGender( operatorDTO.getGender() );
+        operator_.setLastName( operatorDTO.getLastName() );
+
+        operator_.setEmail( operatorDTO.getEmail() );
+
+        operator_.setPhoneNumber( operatorDTO.getPhoneNumber() );
 
         operator_.setHireDate( operatorDTO.getHireDate() );
 
-        operator_.setId( operatorDTO.getId() );
-
-        operator_.setLastName( operatorDTO.getLastName() );
-
-        operator_.setPhoneNumber( operatorDTO.getPhoneNumber() );
+        operator_.setGender( operatorDTO.getGender() );
 
         return operator_;
     }
