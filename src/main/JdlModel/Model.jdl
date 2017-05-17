@@ -1,6 +1,7 @@
 // ------------------------------------------------------------------ 
 // OPERATOR
 // ------------------------------------------------------------------ 
+
 /**
  * Operator entity
  */ 
@@ -13,6 +14,7 @@ entity Operator {
 // ------------------------------------------------------------------ 
 // CUSTOMER
 // ------------------------------------------------------------------ 
+
 /**
  * Customer
  */
@@ -38,6 +40,7 @@ entity Country {
 // ------------------------------------------------------------------ 
 // MARKETPLACE
 // ------------------------------------------------------------------ 
+
 /**
  * Market entity 
  */
@@ -54,9 +57,11 @@ entity ProductCategory {
 	status CategoryStatus
 }
 
+// Todo - replace by boolean
 enum CategoryStatus {
     AVAILABLE, RESTRICTED, DISABLED
 }
+
 entity MarketInfo {
 	key String
     value String
@@ -65,46 +70,99 @@ entity MarketInfo {
 // ------------------------------------------------------------------ 
 // ORDER
 // ------------------------------------------------------------------ 
+
 /**
  * Order entity
+ * 
+ * An order can contain many items, and an MarketProduct can appear in many different orders
+ * Each Order is associated with one or more OrderLines.
+ * Each OrderLine is associated with one and only one Order.
+ * Each OrderLine is associated with one and only one Product.
+ * Each Product is associated with zero or more OrderLines.
  */
-entity MarketOrder {
-	orderDate LocalDate
-	date ZonedDateTime required
-	status Status required
+entity MarketOrders {
+	orderDate ZonedDateTime
+	shipdate LocalDate required
+	totalPrice BigDecimal
+	discount String
+	weight BigDecimal
+	trackingNumber String
+	ordertatus OrderStatus required
 	remoteVirtualCardId String
 	marketOrderId String
 }
-enum Status { PAYED, VALIDATED, SHIPPED }
-entity MarketInfo {
-	key String
-    value String
+enum OrderStatus { 
+	PAID, VALIDATED, SHIPPED
 }
+
+entity Shipments {
+	// shipperId
+	shipperType String
+	companyName String
+	phone String
+	
+}
+entity Invoices {
+	// invoiceId
+	invoiceDate LocalDate
+	invoiceDetails String
+}
+
 entity Payment {
-	id Integer
+	// paymentID Integer
 	date LocalDate
 	amount Double
+	allowed Boolean
 	paymentType PaymentType
 }
 enum PaymentType {
-	CARD, MOBILE, ONLINESYSTEM
+	CREDITCARD, MOBILE, ONLINESYSTEM
 }
-entity MarketOrderItems {
+
+/**
+ * MarketOrderItems = MarketOrderline
+ * cross-reference table Order-Line,
+ * holds information on each product ordered on one order with quantity fiedl
+ * since customer can purchase multiple items on the same order
+ */
+entity MarketOrderline {
+	quantity Integer
+}
+
+entity MarketOrderItemsDetails {
+	key String
+    value String
+}
+
+/**
+ * hold market ordered product information
+ */
+entity MarketProduct {
 	title String required
     description String
 	price BigDecimal
+	category String required
 	img ImageBlob
-	name String
-	// quantity Integer
+}
+entity MarketProductCategory {
+	title String required
+    description String
 }
 
+/**
+ * Attributes / deatils of product: color, size, ..
+ */
+entity MarketProductAttributes {
+	key String
+    value String
+}
 
 // ------------------------------------------------------------------ 
 // RELATIOSHIPS
 // ------------------------------------------------------------------ 
 // Defining relationships
 
-// TODO - FACTORISE IN multiple line declartion
+// TODO - FACTORISE IN multiple line declaration
 
 relationship OneToOne{
     Customer{user} to User
@@ -124,16 +182,29 @@ relationship OneToOne {
 
 
 relationship OneToOne {
-  MarketOrder{payment} to Payment{order}
+ 	MarketOrders{payment} to Payment{order}
+}
+relationship OneToOne {
+	MarketOrders{shipper} to Shipments{order}
 }
 relationship OneToMany {
-  MarketOrder{items} to MarketOrderItems{order}
+	MarketOrderline{details} to MarketOrderItemsDetails
 }
 relationship OneToMany {
-  MarketOrder{quantity} to MarketOrderItems
+	MarketOrderline{details} to MarketProduct
+}
+relationship ManyToOne {
+	MarketProduct{category} to MarketProductCategory
 }
 relationship OneToMany {
-  Customer{order} to MarketOrder{customer}
+	MarketOrders{quantity} to MarketOrderline
+}
+relationship OneToMany {
+	MarketProduct{attributes} to MarketProductAttributes
+}
+
+relationship OneToMany {
+  Customer{order} to MarketOrders{customer}
 }
 
 relationship OneToMany {
@@ -151,8 +222,8 @@ relationship OneToMany {
 // "Pager" depracated in angular 2, 
 // options : pagination, infinite-scroll
 
-paginate MarketOrderItems, Customer with infinite-scroll
-paginate Operator,MarketOrder with pagination
+paginate MarketOrderline, Customer with infinite-scroll
+paginate Operator,MarketOrders with pagination
 
 // ------------------------------------------------------------------ 
 // SERVICE	
