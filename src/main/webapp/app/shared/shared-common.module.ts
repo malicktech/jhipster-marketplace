@@ -4,7 +4,7 @@ import { TranslateService } from 'ng2-translate';
 import { AlertService } from 'ng-jhipster';
 import { WindowRef } from './tracker/window.service';
 import {
-    MarketplacejhipsterSharedLibsModule,
+    MarketSharedLibsModule,
     JhiLanguageHelper,
     FindLanguageFromKeyPipe,
     JhiAlertComponent,
@@ -19,7 +19,7 @@ export function alertServiceProvider(sanitizer: Sanitizer, translateService: Tra
 
 @NgModule({
     imports: [
-        MarketplacejhipsterSharedLibsModule
+        MarketSharedLibsModule
     ],
     declarations: [
         FindLanguageFromKeyPipe,
@@ -37,10 +37,10 @@ export function alertServiceProvider(sanitizer: Sanitizer, translateService: Tra
         Title
     ],
     exports: [
-        MarketplacejhipsterSharedLibsModule,
+        MarketSharedLibsModule,
         FindLanguageFromKeyPipe,
         JhiAlertComponent,
         JhiAlertErrorComponent
     ]
 })
-export class MarketplacejhipsterSharedCommonModule {}
+export class MarketSharedCommonModule {}

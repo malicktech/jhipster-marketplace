@@ -5,7 +5,7 @@
         </a>
         <a class="navbar-brand logo float-left" routerLink="/" (click)="collapseNavbar()">
             <span class="logo-img"></span>
-            <span jhiTranslate="global.title" class="navbar-title">Marketplacejhipster</span> <span class="navbar-version">{{version}}</span>
+            <span jhiTranslate="global.title" class="navbar-title">Market</span> <span class="navbar-version">{{version}}</span>
         </a>
     </div>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
@@ -28,72 +28,6 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu>
-                    <li>
-                        <a class="dropdown-item" routerLink="operator-my-suffix" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.operatorMySuffix">Operator My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="customer-my-suffix" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.customerMySuffix">Customer My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="customer-address-my-suffix" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.customerAddressMySuffix">Customer Address My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="region-my-suffix" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.regionMySuffix">Region My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="country-my-suffix" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.countryMySuffix">Country My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="market-my-suffix" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.marketMySuffix">Market My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="product-category-my-suffix" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.productCategoryMySuffix">Product Category My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="market-info-my-suffix" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.marketInfoMySuffix">Market Info My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="market-order-my-suffix" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.marketOrderMySuffix">Market Order My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="payment-my-suffix" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.paymentMySuffix">Payment My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="market-order-items-my-suffix" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.marketOrderItemsMySuffix">Market Order Items My Suffix</span>
-                        </a>
-                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
@@ -155,12 +89,6 @@
                         </a>
                     </li>
                     <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
-                    <li *ngIf="!inProduction">
-                        <a class="dropdown-item" href='/h2-console' target="_tab" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-hdd-o" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.admin.database">Database</span>
-                        </a>
-                    </li>
                 </ul>
             </li>
             <li ngbDropdown class="nav-item dropdown pointer" *ngIf="languages">
@@ -201,12 +129,6 @@
                         <a class="dropdown-item" routerLink="password" routerLinkActive="active" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-clock-o" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.account.password">Password</span>
-                        </a>
-                    </li>
-                    <li *ngSwitchCase="true">
-                        <a class="dropdown-item" routerLink="sessions" routerLinkActive="active" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-cloud" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.account.sessions">Sessions</span>
                         </a>
                     </li>
                     <li *ngSwitchCase="true">

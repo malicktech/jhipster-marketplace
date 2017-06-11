@@ -1,27 +1,27 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "fr.sne.marketplace",
+      "packageName": "fr.sne.market",
       "nativeLanguage": "fr"
     },
-    "jhipsterVersion": "4.4.1",
-    "baseName": "marketplacejhipster",
-    "packageName": "fr.sne.marketplace",
-    "packageFolder": "fr/sne/marketplace",
+    "jhipsterVersion": "4.5.3",
+    "baseName": "market",
+    "packageName": "fr.sne.market",
+    "packageFolder": "fr/sne/market",
     "serverPort": "8080",
-    "authenticationType": "session",
+    "authenticationType": "jwt",
     "hibernateCache": "ehcache",
     "clusteredHttpSession": false,
     "websocket": "spring-websocket",
     "databaseType": "sql",
-    "devDatabaseType": "h2Disk",
+    "devDatabaseType": "mysql",
     "prodDatabaseType": "mysql",
     "searchEngine": "elasticsearch",
     "messageBroker": false,
     "serviceDiscoveryType": false,
     "buildTool": "maven",
     "enableSocialSignIn": true,
-    "rememberMeKey": "60e6ef855197a9562a3ea1a6079afb8b086bb23b",
+    "jwtSecretKey": "5f12d475254a04300fd6960cdbf8f23a3382f8ff",
     "clientFramework": "angular2",
     "useSass": true,
     "clientPackageManager": "yarn",
@@ -31,20 +31,7 @@
       "protractor"
     ],
     "jhiPrefix": "jhi",
-    "otherModules": [
-      {
-        "name": "generator-jhipster-docker",
-        "version": "2.2.0"
-      },
-      {
-        "name": "generator-jhipster-bootstrap-material-design",
-        "version": "3.5.1"
-      },
-      {
-        "name": "generator-jhipster-elasticsearch-reindexer",
-        "version": "0.3.0"
-      }
-    ],
+    "otherModules": [],
     "enableTranslation": true,
     "nativeLanguage": "fr",
     "languages": [

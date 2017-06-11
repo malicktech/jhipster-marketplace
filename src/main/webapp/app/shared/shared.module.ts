@@ -3,8 +3,8 @@ import { DatePipe } from '@angular/common';
 
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import {
-    MarketplacejhipsterSharedLibsModule,
-    MarketplacejhipsterSharedCommonModule,
+    MarketSharedLibsModule,
+    MarketSharedCommonModule,
     CSRFService,
     AuthServerProvider,
     AccountService,
@@ -22,8 +22,8 @@ import {
 
 @NgModule({
     imports: [
-        MarketplacejhipsterSharedLibsModule,
-        MarketplacejhipsterSharedCommonModule
+        MarketSharedLibsModule,
+        MarketSharedCommonModule
     ],
     declarations: [
         JhiSocialComponent,
@@ -46,7 +46,7 @@ import {
     ],
     entryComponents: [JhiLoginModalComponent],
     exports: [
-        MarketplacejhipsterSharedCommonModule,
+        MarketSharedCommonModule,
         JhiSocialComponent,
         JhiLoginModalComponent,
         HasAnyAuthorityDirective,
@@ -55,4 +55,4 @@ import {
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
-export class MarketplacejhipsterSharedModule {}
+export class MarketSharedModule {}

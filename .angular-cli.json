@@ -1,7 +1,7 @@
 {
     "project": {
         "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-        "name": "marketplacejhipster"
+        "name": "market"
     },
     "apps": [{
         "root": "src/main/webapp/",

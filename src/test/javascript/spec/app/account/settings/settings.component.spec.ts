@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable } from 'rxjs/Rx';
 import { JhiLanguageHelper } from '../../../../../../main/webapp/app/shared';
-import { MarketplacejhipsterTestModule } from '../../../test.module';
+import { MarketTestModule } from '../../../test.module';
 import { Principal, AccountService } from '../../../../../../main/webapp/app/shared';
 import { SettingsComponent } from '../../../../../../main/webapp/app/account/settings/settings.component';
 import { MockAccountService } from '../../../helpers/mock-account.service';
@@ -21,7 +21,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [MarketplacejhipsterTestModule],
+                imports: [MarketTestModule],
                 declarations: [SettingsComponent],
                 providers: [
                     {
@@ -41,11 +41,8 @@ describe('Component Tests', () => {
                         useValue: null
                     },
                 ]
-            }).overrideComponent(SettingsComponent, {
-                set: {
-                    template: ''
-                }
-            }).compileComponents();
+            }).overrideTemplate(SettingsComponent, '')
+            .compileComponents();
         }));
 
         beforeEach(() => {

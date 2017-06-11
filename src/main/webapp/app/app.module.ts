@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Ng2Webstorage } from 'ng2-webstorage';
 
-import { MarketplacejhipsterSharedModule, UserRouteAccessService } from './shared';
-import { MarketplacejhipsterHomeModule } from './home/home.module';
-import { MarketplacejhipsterAdminModule } from './admin/admin.module';
-import { MarketplacejhipsterAccountModule } from './account/account.module';
-import { MarketplacejhipsterEntityModule } from './entities/entity.module';
+import { MarketSharedModule, UserRouteAccessService } from './shared';
+import { MarketHomeModule } from './home/home.module';
+import { MarketAdminModule } from './admin/admin.module';
+import { MarketAccountModule } from './account/account.module';
+import { MarketEntityModule } from './entities/entity.module';
 
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
@@ -29,11 +29,11 @@ import {
         BrowserModule,
         LayoutRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
-        MarketplacejhipsterSharedModule,
-        MarketplacejhipsterHomeModule,
-        MarketplacejhipsterAdminModule,
-        MarketplacejhipsterAccountModule,
-        MarketplacejhipsterEntityModule
+        MarketSharedModule,
+        MarketHomeModule,
+        MarketAdminModule,
+        MarketAccountModule,
+        MarketEntityModule
     ],
     declarations: [
         JhiMainComponent,
@@ -51,4 +51,4 @@ import {
     ],
     bootstrap: [ JhiMainComponent ]
 })
-export class MarketplacejhipsterAppModule {}
+export class MarketAppModule {}

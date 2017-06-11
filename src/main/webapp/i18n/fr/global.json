@@ -1,23 +1,12 @@
 {
     "global": {
-        "title": "Marketplacejhipster",
+        "title": "Market",
         "browsehappy": "Vous utilisez un <strong>ancien</strong> navigateur. Veuillez <a href=\"http://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour une meilleure expérience.",
         "menu": {
             "home": "Accueil",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entités",
-                "operatorMySuffix": "Operator",
-                "customerMySuffix": "Customer",
-                "customerAddressMySuffix": "Customer Address",
-                "regionMySuffix": "Region",
-                "countryMySuffix": "Country",
-                "marketMySuffix": "Market",
-                "productCategoryMySuffix": "Product Category",
-                "marketInfoMySuffix": "Market Info",
-                "marketOrderMySuffix": "Market Order",
-                "paymentMySuffix": "Payment",
-                "marketOrderItemsMySuffix": "Market Order Items",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -94,7 +83,8 @@
         },
         "ribbon": {
             "dev":"Développement"
-        }
+        },
+        "item-count": "Affichage {{first}} - {{second}} de {{total}} items."
     },
     "entity": {
         "action": {
