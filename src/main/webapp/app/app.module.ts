@@ -9,6 +9,7 @@ import { MarketHomeModule } from './home/home.module';
 import { MarketAdminModule } from './admin/admin.module';
 import { MarketAccountModule } from './account/account.module';
 import { MarketEntityModule } from './entities/entity.module';
+import { AmazonitemModule } from './amazonitem/amazonitem.module';
 
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
@@ -33,7 +34,8 @@ import {
         MarketHomeModule,
         MarketAdminModule,
         MarketAccountModule,
-        MarketEntityModule
+        MarketEntityModule,
+        AmazonitemModule
     ],
     declarations: [
         JhiMainComponent,
