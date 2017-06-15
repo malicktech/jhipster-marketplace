@@ -11,12 +11,18 @@ import { ProductSearchFormComponent } from './marketsearchform/search-form.compo
 
 import { ProductService } from './marketproduct/product.service';
 
+// material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdIconModule, MdButtonModule, MdCheckboxModule } from '@angular/material';
+
 
 @NgModule({
   imports: [
     MarketSharedModule,
     CommonModule,
-    RouterModule.forRoot([marketprodutRoute], { useHash: true })
+    RouterModule.forRoot([marketprodutRoute], { useHash: true }),
+    BrowserAnimationsModule,
+    MdIconModule, MdButtonModule, MdCheckboxModule
   ],
   declarations: [
     MarketproductComponent,
@@ -27,4 +33,4 @@ import { ProductService } from './marketproduct/product.service';
   ],
 })
 
-export class AmazonitemModule {}
+export class AmazonitemModule { }

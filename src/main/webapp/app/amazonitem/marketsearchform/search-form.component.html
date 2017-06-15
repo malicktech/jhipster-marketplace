@@ -24,8 +24,12 @@
                 <div [hidden]="query.valid || query.pristine" class="alert alert-danger">Query is required</div>
             </div>
             <!-- - -->
-            <button type="submit" class="btn btn-success btn-outline-success" [disabled]="!heroForm.form.valid"><md-icon>search</md-icon></button>
-            <button type="button" class="btn btn-default" (click)="newSearch(); heroForm.reset()"><md-icon>clear</md-icon></button>
+            <button type="submit" class="btn btn-success btn-outline-success" [disabled]="!heroForm.form.valid">
+                <md-icon>search</md-icon>
+                </button>
+            <button type="button" class="btn btn-default" (click)="newSearch(); heroForm.reset()">
+                <md-icon>clear</md-icon>
+                </button>
             
         </form>
 
