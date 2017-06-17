@@ -5,28 +5,31 @@ import { CommonModule } from '@angular/common';
 
 import { MarketSharedModule } from '../shared';
 
-import { marketprodutRoute } from './marketproduct/marketproduct.route'; marketprodutRoute
-import { MarketproductComponent } from './marketproduct/marketproduct.component';
-import { ProductSearchFormComponent } from './marketsearchform/search-form.component';
+// import { marketprodutRoute } from './marketproduct/marketproduct.route';
+// import { ProductDetailsRoute } from './product-details/product-details.route';
+// import { MarketproductComponent } from './marketproduct/marketproduct.component';
 
-import { ProductService } from './marketproduct/product.service';
+// import { ProductService } from './marketproduct/product.service';
+// import { ProductDetailsComponent } from './product-details/product-details.component';
 
-// material
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdIconModule, MdButtonModule, MdCheckboxModule } from '@angular/material';
-
+import {
+  MarketproductComponent,
+  marketprodutRoute,
+  ProductDetailsComponent,
+  ProductDetailsRoute,
+  ProductService,
+  amazonitemState
+} from './';
 
 @NgModule({
   imports: [
     MarketSharedModule,
     CommonModule,
-    RouterModule.forRoot([marketprodutRoute], { useHash: true }),
-    BrowserAnimationsModule,
-    MdIconModule, MdButtonModule, MdCheckboxModule
+    RouterModule.forRoot([amazonitemState], { useHash: true })
   ],
   declarations: [
     MarketproductComponent,
-    ProductSearchFormComponent
+    ProductDetailsComponent
   ],
   providers: [
     ProductService

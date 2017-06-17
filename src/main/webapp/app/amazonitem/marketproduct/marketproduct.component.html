@@ -1,18 +1,25 @@
+<!--https://v4-alpha.getbootstrap.com/components/card
+
+use card, card layout, use card-link
+-->
+
 <h2>Product List</h2>
 <div class="container">
-  <product-search-form></product-search-form>
   <div class="products row">
-
-    <!-- each hero goes here -->
-    <div *ngFor="let product of products" class="card col-sm-4 col-md-3 " [class.selected]="hero === selectedHero" (click)="onSelect(product)">
+    <div class="card-group">
+      <!--col-sm-4 col-md-3-->
+    <div *ngFor="let product of products" class="card" style="width: 20rem;" [class.selected]="hero === selectedHero">
       <img src="{{product.mainImageUrl}}" alt="Card image cap" class="card-img-top img-fluid mx-auto">
       <div class="card-block">
         <h4 class="card-title">{{product.title}}</h4>
-        <h6 class="text-center">{{product.asin}}</h6>
+        <!--<h6 class="text-center">{{product.asin}}</h6>-->
+        <a class="text-center" [routerLink]="['/product', product.asin]">{{product.asin}}</a>
         <p class="col-sm-12 text-center">{{product.price}}</p>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary text-center" (click)="gotoDetail()">View Details</a>
+        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+        <!--<a href="#" class="btn btn-primary text-center" routerLink="['product', {{product.asin}}]" (click)="gotoDetail()">View Details</a>-->
+        
       </div>
+    </div>
     </div>
   </div>
 </div>

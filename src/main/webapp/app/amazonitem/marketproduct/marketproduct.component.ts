@@ -5,12 +5,8 @@ import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
 
-
 import { Product } from './product-model';
 import { ProductService } from './product.service';
-
-
-
 
 @Component({
   selector: 'jhi-marketproduct',
@@ -29,7 +25,7 @@ selectedProduct: Product;
     private location: Location,
     private productService: ProductService
   ) {
-    console.log('constructor');
+    // console.log('constructor');
   }
 
 
@@ -44,7 +40,7 @@ selectedProduct: Product;
     //   .subscribe(products => this.products = products);
 
 
-    console.log('market');
+    // console.log('market');
 
 
     this.route.params.subscribe(params => {
@@ -75,10 +71,11 @@ selectedProduct: Product;
   //   this.router.navigate(['/product-list'], { queryParams: { page: pageNum } });
   // }
 
-
+/*
   gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedProduct.asin]);
+    this.router.navigate(['/marketproduct', this.selectedProduct.asin]);
   }
+  */
 
 
 }
