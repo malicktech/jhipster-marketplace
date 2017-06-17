@@ -30,7 +30,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 
-public class MarketItemMapperImpl implements MarketItemMapper {
+public class MarketItemDetailsMapperImpl implements MarketItemDetailsMapper {
 
     @Override
 

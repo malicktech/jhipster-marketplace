@@ -1,6 +1,5 @@
 package fr.sne.market.service.dto;
 
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,74 +11,65 @@ import java.util.Objects;
 public class MarketItemDTO implements Serializable {
 
 	// add market name in entity not in DTO
-	
-    private String asin;
 
-    private String title;
-    
-    private String mainImageUrl;
-    
-    private String ean;
-    
-    private String label;
+	private String asin;
+	private String title;
+	private String mainImageUrl;
+	private String ean;
+	private String label;
+	private String brand;
+	private String model;
+	private String price;
 
-    private String brand;
-    private String model;
-    private String price;
+	private String manufacturer;
 
-    private String manufacturer;
+	public String getAsin() {
+		return asin;
+	}
 
+	public void setAsin(String asin) {
+		this.asin = asin;
+	}
 
-    public String getAsin() {
-        return asin;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setAsin(String asin) {
-        this.asin = asin;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
+	public String getLabel() {
+		return label;
+	}
 
+	public void setLabel(String label) {
+		this.label = label;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public String getEan() {
+		return ean;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public void setEan(String ean) {
+		this.ean = ean;
+	}
 
-    public String getLabel() {
-        return label;
-    }
+	public String getBrand() {
+		return brand;
+	}
 
-    public void setLabel(String label) {
-        this.label = label;
-    }
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 
-    public String getEan() {
-        return ean;
-    }
+	public String getManufacturer() {
+		return manufacturer;
+	}
 
-    public void setEan(String ean) {
-        this.ean = ean;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
+	}
 
 	/**
 	 * @return the mainImageUrl
@@ -89,7 +79,8 @@ public class MarketItemDTO implements Serializable {
 	}
 
 	/**
-	 * @param mainImageUrl the mainImageUrl to set
+	 * @param mainImageUrl
+	 *            the mainImageUrl to set
 	 */
 	public void setMainImageUrl(String mainImageUrl) {
 		this.mainImageUrl = mainImageUrl;
@@ -103,7 +94,8 @@ public class MarketItemDTO implements Serializable {
 	}
 
 	/**
-	 * @param model the model to set
+	 * @param model
+	 *            the model to set
 	 */
 	public void setModel(String model) {
 		this.model = model;
@@ -117,7 +109,8 @@ public class MarketItemDTO implements Serializable {
 	}
 
 	/**
-	 * @param price the price to set
+	 * @param price
+	 *            the price to set
 	 */
 	public void setPrice(String price) {
 		this.price = price;
