@@ -11,6 +11,9 @@ import { MarketAccountModule } from './account/account.module';
 import { MarketEntityModule } from './entities/entity.module';
 import { AmazonitemModule } from './amazonitem/amazonitem.module';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomMaterialModule } from './custom-material/custom-material.module';
+
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
@@ -22,7 +25,8 @@ import {
     ProfileService,
     PageRibbonComponent,
     ActiveMenuDirective,
-    ErrorComponent
+    ErrorComponent,
+    ProductSearchFormComponent
 } from './layouts';
 
 @NgModule({
@@ -35,11 +39,14 @@ import {
         MarketAdminModule,
         MarketAccountModule,
         MarketEntityModule,
-        AmazonitemModule
+        AmazonitemModule,
+        BrowserAnimationsModule,
+        CustomMaterialModule
     ],
     declarations: [
         JhiMainComponent,
         NavbarComponent,
+        ProductSearchFormComponent,
         ErrorComponent,
         PageRibbonComponent,
         ActiveMenuDirective,
