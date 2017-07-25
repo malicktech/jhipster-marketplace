@@ -3,7 +3,7 @@ import { Route } from '@angular/router';
 import { UserRouteAccessService } from '../../shared';
 import { ProductDetailsComponent } from './product-details.component';
 
-export const ProductDetailsRoute: Route = {
+export const productDetailsRoute: Route = {
     path: 'product/:asin',
     component: ProductDetailsComponent,
     data: {

@@ -2,12 +2,12 @@ import { Routes } from '@angular/router';
 
 import {
     marketprodutRoute,
-    ProductDetailsRoute
+    productDetailsRoute
 } from './';
 
 const AMAZON_ROUTES = [
    marketprodutRoute,
-   ProductDetailsRoute
+   productDetailsRoute
 ];
 
 export const amazonitemState: Routes = [{
