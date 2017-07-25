@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { Formsearch } from './search-form';
 
 @Component({
-    selector: 'product-search-form',
+    selector: 'jhi-search-form',
     templateUrl: './search-form.component.html',
     styleUrls: [],
 })
-export class ProductSearchFormComponent {
+export class SearchFormComponent {
 
     markets = ['amazon', 'cdiscount'];
     searchindexes = ['All', 'Books', 'Electronics', 'PCHardware', 'Apparel'];
@@ -34,6 +34,5 @@ export class ProductSearchFormComponent {
     newSearch() {
         this.model = new Formsearch(this.markets[0], this.searchindexes[0], '', '1');
     }
-
 
 }

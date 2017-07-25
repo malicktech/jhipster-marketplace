@@ -8,7 +8,7 @@ use card, card layout, use card-link
   <div class="products row">
     <div class="card-group">
       <!--col-sm-4 col-md-3-->
-    <div *ngFor="let product of products" class="card" style="width: 20rem;" [class.selected]="hero === selectedHero">
+    <div *ngFor="let product of products" class="card" style="width: 20rem;">
       <img src="{{product.mainImageUrl}}" alt="Card image cap" class="card-img-top img-fluid mx-auto">
       <div class="card-block">
         <h4 class="card-title">{{product.title}}</h4>

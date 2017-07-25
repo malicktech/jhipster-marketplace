@@ -12,8 +12,8 @@ import { MdIconModule, MdButtonModule, MdCheckboxModule } from '@angular/materia
     MdIconModule, MdButtonModule, MdCheckboxModule
   ],
   exports: [
-    MdIconModule, 
-    MdButtonModule, 
+    MdIconModule,
+    MdButtonModule,
     MdCheckboxModule
   ],
   declarations: []

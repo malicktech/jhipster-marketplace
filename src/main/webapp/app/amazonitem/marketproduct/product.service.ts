@@ -15,8 +15,6 @@ export class ProductService {
     private headers = new Headers({ 'Content-Type': 'application/json' });
     // this.headers.append('Access-Control-Allow-Origin', '*');
 
-
-
     constructor(private http: Http) { }
 
     getProducts(market: string, searchindex: string, query: string, itempage: string): Promise<Product[]> { // Promise-returning
@@ -26,7 +24,7 @@ export class ProductService {
         console.log(url);
         return this.http.get(url) // returns an RxJS Observable
             .toPromise() // converted the Observable to a Promise
-            .then(response => response.json() as Product[]) // Extracting the data in the then callback
+            .then((response) => response.json() as Product[]) // Extracting the data in the then callback
             .catch(this.handleError); // catch server failures
     }
 
@@ -35,7 +33,7 @@ export class ProductService {
         const url = `${this.apiUrl}/${path}/${asin}`;
         return this.http.get(url)
             .toPromise()
-            .then(response => response.json() as Product)
+            .then((response) => response.json() as Product)
             .catch(this.handleError);
     }
 
@@ -43,6 +41,4 @@ export class ProductService {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }
-
-
 }

@@ -5,7 +5,6 @@ import { Location } from '@angular/common';
 import { ProductService } from '../marketproduct/product.service';
 import { Product } from '../marketproduct/product-model';
 
-
 @Component({
   selector: 'jhi-product-details',
   templateUrl: './product-details.component.html',
@@ -19,12 +18,11 @@ export class ProductDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location) { }
 
-
   ngOnInit(): void {
 
     this.route.params
       .switchMap((params: Params) => this.productService.getProduct('amazon', params['asin']))
-      .subscribe(product => this.product = product);
+      .subscribe((product) => this.product = product);
   }
 
 goBack(): void {

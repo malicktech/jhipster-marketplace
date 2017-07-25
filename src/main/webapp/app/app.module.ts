@@ -26,7 +26,7 @@ import {
     PageRibbonComponent,
     ActiveMenuDirective,
     ErrorComponent,
-    ProductSearchFormComponent
+    SearchFormComponent
 } from './layouts';
 
 @NgModule({
@@ -46,7 +46,7 @@ import {
     declarations: [
         JhiMainComponent,
         NavbarComponent,
-        ProductSearchFormComponent,
+        SearchFormComponent,
         ErrorComponent,
         PageRibbonComponent,
         ActiveMenuDirective,
