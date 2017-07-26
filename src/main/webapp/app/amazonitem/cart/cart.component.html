@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <button (click)="goBack()">Back</button>
+</div>
+
+<!--<div class="container">
+    <div class="row">
+        <pre>{{cart | json}}</pre>
+    </div>
+</div>-->
+
+<div class="container">
+    <div class="row">
+
+        <div class=" col-md-9">
+            <div *ngIf="cart.cartItem">
+                <div *ngFor="let product of cart.cartItem" class="card row" style="flex-direction: initial;">
+                    <div class="col-md-2">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/08/x-site/icons/no-img-lg._V192209323_BO1,204,203,200_.gif" alt="Card image cap"
+                            class="card-img-top img-fluid mx-auto">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-text">{{product.title}}</div>
+                        <div class="card-text">Seller : {{product.sellerNickname}}</div>
+                        <div class="card-text">asin : {{product.asin}}</div>
+                        <div class="card-text">Quantité : {{product.quantity}}</div>
+                        <div class="card-text">PrixUNitaire : {{product.unitPrice}}</div>
+                        <div class="card-text">TotalCost : {{product.totalCost}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header">Card : {{cart.cartId}}</div>
+                    <div class="card-block">
+                        <h6 class="card-subtitle mb-2 text-muted">{{cart.subTotal}}</h6>
+                        <p class="card-text">Livraison gratuite</p>
+                        <a href="{{cart.purchaseURL}}" class="btn btn-primary">Ajout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

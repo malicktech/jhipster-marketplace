@@ -8,7 +8,9 @@ import { MarketSharedModule } from '../shared';
 import {
   MarketproductComponent,
   ProductDetailsComponent,
+  CartComponent,
   ProductService,
+  CartService,
   amazonitemState
 } from './';
 
@@ -16,15 +18,16 @@ import {
   imports: [
     MarketSharedModule,
     CommonModule,
-    RouterModule.forRoot(amazonitemState, { useHash: true }),
-    
+    RouterModule.forRoot(amazonitemState, { useHash: true })
   ],
   declarations: [
     MarketproductComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent
   ],
   providers: [
-    ProductService
+    ProductService,
+    CartService
   ],
 })
 

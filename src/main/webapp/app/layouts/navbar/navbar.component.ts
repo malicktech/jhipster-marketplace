@@ -77,4 +77,7 @@ export class NavbarComponent implements OnInit {
     getImageUrl() {
         return this.isAuthenticated() ? this.principal.getImageUrl() : null;
     }
+
+    // custom Add
+    // this.router.navigate(['/collections', '10', 'books', '456678', "my-book.html"]);
 }
