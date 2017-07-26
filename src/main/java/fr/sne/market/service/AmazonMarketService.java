@@ -22,6 +22,31 @@ import com.amazon.advertising.api.helpers.SignedRequestsHelper;
 public class AmazonMarketService {
 
 	private final Logger log = LoggerFactory.getLogger(AmazonMarketService.class);
+	
+	/*
+	 * Your AWS Access Key ID, as taken from the AWS Your Account page.
+	 */
+	private static final String AWS_ACCESS_KEY_ID = "AKIAJ5XZFNFFPAGZEDFQ";
+
+	/*
+	 * Your AWS Secret Key corresponding to the above ID, as taken from the AWS
+	 * Your Account page.
+	 */
+	private static final String AWS_SECRET_KEY = "SA8O6zNW9JvhdEsKdvECeUmAPwywo+EqcVBMYr6D";
+
+	/*
+	 * Use the end-point according to the region you are interested in.
+	 */
+	private static final String ENDPOINT = "webservices.amazon.fr";
+	
+	SignedRequestsHelper helper;
+	{
+		try {
+			helper = SignedRequestsHelper.getInstance(ENDPOINT, AWS_ACCESS_KEY_ID, AWS_SECRET_KEY);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	private final RestTemplate restTemplate;
 
@@ -43,6 +68,7 @@ public class AmazonMarketService {
 		log.info("keywords = " + keywords + " | searchindex = " + searchindex);
 		
 		try {
+			// TODO - use instancied this.helper
 			helper = SignedRequestsHelper.getInstance("webservices.amazon.fr", "AKIAJ5XZFNFFPAGZEDFQ",
 					"SA8O6zNW9JvhdEsKdvECeUmAPwywo+EqcVBMYr6D");
 			String requestUrl = null;
@@ -140,6 +166,118 @@ public class AmazonMarketService {
         log.info("Signed URL: \"" + requestUrl + "\"");
         return requestUrl;
 
+	}
+	
+	/**
+	 * 
+	 * The CartGet operation returns the IDs, quantities, and prices of all items in a remote shopping cart
+	 * 
+	 * @see http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CartGet.html
+	 * 
+	 */
+	public String getCartSample(String cartId, String hmac, String responseGroup, String operation) {
+
+		String requestUrl = null;
+
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("Service", "AWSECommerceService");
+		params.put("Operation", operation); // CartGet
+		params.put("AWSAccessKeyId", "AKIAJ5XZFNFFPAGZEDFQ");
+		params.put("AssociateTag", "daktic-21");
+
+		params.put("CartId", cartId);
+		params.put("HMAC", hmac);
+		params.put("ResponseGroup", responseGroup);
+
+		requestUrl = helper.sign(params);
+
+		log.info("Signed URL: \"" + requestUrl + "\"");
+		return requestUrl;
+	}
+
+	/**
+	 * The CartCreate operation creates a remote shopping cart
+	 * 
+	 * @see http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CartCreate.html
+	 * 
+	 * @param asin = The Amazon Standard Identification Number of an item.
+	 * @param quantity = The number of items to add to cart.
+	 * @param responseGroup = The type of product data you want returned
+	 * 
+	 * @return signed URL
+	 */
+	public String createCartSample(String asin, String quantity, String responseGroup) {
+
+		String requestUrl = null;
+
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("Service", "AWSECommerceService");
+		params.put("Operation", "CartCreate");
+		params.put("AWSAccessKeyId", "AKIAJ5XZFNFFPAGZEDFQ");
+		params.put("AssociateTag", "daktic-21");
+
+		params.put("Item.1.ASIN", asin);
+		params.put("Item.1.Quantity", quantity);
+		
+		params.put("ResponseGroup", responseGroup);
+
+		requestUrl = helper.sign(params);
+
+		log.info("Signed URL: \"" + requestUrl + "\"");
+		return requestUrl;
+	}
+
+		/**
+		 * The CartAdd operation enables you to add items to an existing remote shopping cart
+		 * 
+		 * @param cartId
+		 * @param hmac
+		 * @param asin
+		 * @param quantity
+		 * @param responseGroup
+		 * @param operation
+		 * @return
+		 */
+	public String cartAddSample(String cartId, String hmac, String asin, String quantity, String responseGroup,
+			String operation) {
+		String requestUrl = null;
+
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("Service", "AWSECommerceService");
+		params.put("Operation", operation); // CartAdd
+		params.put("AWSAccessKeyId", "AKIAJ5XZFNFFPAGZEDFQ");
+		params.put("AssociateTag", "daktic-21");
+
+		params.put("CartId", cartId);
+		params.put("HMAC", hmac);
+		params.put("Item.1.Quantity", quantity); // Item-1-ASIN not work
+
+		if (operation.equalsIgnoreCase("CartAdd")) {
+			params.put("Item.1.ASIN", asin);
+		} else {
+			params.put("Item.1.CartItemId", asin);
+		}
+
+		// CURRENTLY ON ITEM add by time? POSSIBLE TO ADD many in same time
+		// params.put("Item.2.ASIN", asin);
+		// params.put("Item.2.Quantity", quantity);
+
+		params.put("ResponseGroup", responseGroup);
+
+		requestUrl = helper.sign(params);
+
+		log.info("Signed URL: \"" + requestUrl + "\"");
+		return requestUrl;
+	}
+	
+	
+	/**
+	 * TODO 
+	 * Get List Panier ,
+	 * id saved in backoffice
+	 */
+	public void getListCard() {
+		
 	}
 	
 }
