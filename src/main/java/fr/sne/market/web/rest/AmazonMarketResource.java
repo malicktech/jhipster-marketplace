@@ -24,6 +24,8 @@ import com.amazon.api.ECS.client.jax.Cart;
 import com.amazon.api.ECS.client.jax.CartAddResponse;
 import com.amazon.api.ECS.client.jax.CartClearResponse;
 import com.amazon.api.ECS.client.jax.CartGetResponse;
+import com.amazon.api.ECS.client.jax.CartItem;
+import com.amazon.api.ECS.client.jax.CartItems;
 import com.amazon.api.ECS.client.jax.CartModifyResponse;
 import com.amazon.api.ECS.client.jax.Errors;
 import com.amazon.api.ECS.client.jax.Item;
@@ -61,8 +63,8 @@ public class AmazonMarketResource {
 
 	@Autowired
 	public AmazonMarketResource(AmazonMarketService amazonMarketService, RestTemplateBuilder restTemplateBuilder,
-			MarketItemMapper marketItemMapper, MarketItemDetailsMapper marketItemDetailsMapper
-			, CartMapper cartMapper, CartItemMapper cartItemMapper) {
+			MarketItemMapper marketItemMapper, MarketItemDetailsMapper marketItemDetailsMapper, CartMapper cartMapper,
+			CartItemMapper cartItemMapper) {
 		this.amazonMarketService = amazonMarketService;
 		this.restTemplate = restTemplateBuilder.build();
 		this.marketItemMapper = marketItemMapper;
@@ -170,71 +172,67 @@ public class AmazonMarketResource {
 	 * items in a remote shopping cart, including SavedForLater items
 	 */
 	@GetMapping("/amazon/cart/{operation}/{cartId}")
-	public ResponseEntity<CartDTO> getCart(
-			@PathVariable String cartId, 
-			@PathVariable String operation,
-			@RequestParam(required = true) String hmac,
-			@RequestParam(required = false) String asin, 
-			@RequestParam(required = false) String quantity
-			) 
-			throws Exception {
+	public ResponseEntity<CartDTO> getCart(@PathVariable String cartId, @PathVariable String operation,
+			@RequestParam(required = true) String hmac, @RequestParam(required = false) String asin,
+			@RequestParam(required = false) String quantity) throws Exception {
 
 		log.info("GET - /cart/" + operation + "/" + cartId);
 		log.debug("REST request to Get remote remote shopping cart {}", cartId);
 		log.info("GET - /amazon/cart/ ==> operation = " + operation + " | hmac = " + hmac);
-//		log.info("asin : "+ asin + "| quantity : "  + quantity + "| operation : " + operation);
+		// log.info("asin : "+ asin + "| quantity : " + quantity + "| operation
+		// : " + operation);
 
 		String responseGroup = "Cart";
 		HttpStatus statusCode;
 		Cart cart;
 		OperationRequest operationRequest;
 
-
 		if (operation.equalsIgnoreCase("CartClear")) {
 			String targetUrl = this.amazonMarketService.getCartSample(cartId, hmac, responseGroup, operation);
 			URI targetURI;
 			targetURI = new URI(targetUrl);
-			
+
 			ResponseEntity<CartClearResponse> result = restTemplate.exchange(targetURI, HttpMethod.GET, null,
 					CartClearResponse.class);
 			operationRequest = result.getBody().getOperationRequest();
 			cart = result.getBody().getCart().get(0);
 			statusCode = result.getStatusCode();
-		} 
-		else if (operation.equalsIgnoreCase("CartAdd")  ) {
-			String targetUrl = this.amazonMarketService.cartAddSample(cartId, hmac, asin, quantity, responseGroup, operation);
+		} else if (operation.equalsIgnoreCase("CartAdd")) {
+			String targetUrl = this.amazonMarketService.cartAddSample(cartId, hmac, asin, quantity, responseGroup,
+					operation);
 			URI targetURI;
 			targetURI = new URI(targetUrl);
-			
-			ResponseEntity<CartAddResponse> result = restTemplate.exchange(targetURI, HttpMethod.GET, null, CartAddResponse.class);
+
+			ResponseEntity<CartAddResponse> result = restTemplate.exchange(targetURI, HttpMethod.GET, null,
+					CartAddResponse.class);
+			operationRequest = result.getBody().getOperationRequest();
+			cart = result.getBody().getCart().get(0);
+			statusCode = result.getStatusCode();
+			log.info(statusCode.toString());
+		} else if (operation.equalsIgnoreCase("CartModify")) {
+			String targetUrl = this.amazonMarketService.cartAddSample(cartId, hmac, asin, quantity, responseGroup,
+					operation);
+			URI targetURI;
+			targetURI = new URI(targetUrl);
+			ResponseEntity<CartModifyResponse> result = restTemplate.exchange(targetURI, HttpMethod.GET, null,
+					CartModifyResponse.class);
 			operationRequest = result.getBody().getOperationRequest();
 			cart = result.getBody().getCart().get(0);
 			statusCode = result.getStatusCode();
 			log.info(statusCode.toString());
 		}
-		else if (operation.equalsIgnoreCase("CartModify")) {
-			String targetUrl = this.amazonMarketService.cartAddSample(cartId, hmac, asin, quantity, responseGroup, operation);
-			URI targetURI;
-			targetURI = new URI(targetUrl);
-			ResponseEntity<CartModifyResponse> result = restTemplate.exchange(targetURI, HttpMethod.GET, null, CartModifyResponse.class);
-			operationRequest = result.getBody().getOperationRequest();
-			cart = result.getBody().getCart().get(0);
-			statusCode = result.getStatusCode();
-			log.info(statusCode.toString());
-		} 
 		// CartGet
 		else {
 			String targetUrl = this.amazonMarketService.getCartSample(cartId, hmac, responseGroup, operation);
 			URI targetURI;
 			targetURI = new URI(targetUrl);
-			
+
 			ResponseEntity<CartGetResponse> result = restTemplate.exchange(targetURI, HttpMethod.GET, null,
 					CartGetResponse.class);
 			operationRequest = result.getBody().getOperationRequest();
 			statusCode = result.getStatusCode();
 			cart = result.getBody().getCart().get(0);
 		}
-		
 
 		log.info("statusCode : " + statusCode);
 
@@ -247,8 +245,6 @@ public class AmazonMarketResource {
 				log.info("errorMsg : " + errors.getError().get(0).getMessage());
 			} else {
 				log.info("cart");
-				log.info("cart = " + cart.getCartItems().toString());
-
 			}
 		} else if (statusCode == HttpStatus.SERVICE_UNAVAILABLE) {
 			log.info("serviceUnavailable", "Amazon Service is Currently Unavailable ");
@@ -259,73 +255,18 @@ public class AmazonMarketResource {
 		// .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
 
 		CartDTO cartDTO = this.cartMapper.cartToCartDTO(cart);
-		List<CartItemDTO> cartItemDTO = this.cartItemMapper.toDTOs(cart.getCartItems().getCartItem());
-		cartDTO.setCartItem(cartItemDTO);
-		
+		Optional<Cart> optionalCart = Optional.ofNullable(cart);
+		Optional<List<CartItem>> optionalCartItems = optionalCart.map(Cart::getCartItems).map(CartItems::getCartItem);
+		// .ifPresent(System.out::println);
+		if (optionalCartItems.isPresent()) {
+			List<CartItemDTO> cartItemDTO = this.cartItemMapper.toDTOs(optionalCartItems.get());
+			cartDTO.setCartItem(cartItemDTO);
+		}
+
 		HttpHeaders header = null;
 		return Optional.ofNullable(cartDTO).map(response -> ResponseEntity.ok().headers(header).body(response))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 
-	}
-	
-	
-	/***
-	 * place a new item to an existing remote shopping cart.
-	 * Modify Quantity
-	 * increase the quantity of an item already in the cart
-	 * 
-	 * @param cartId
-	 * @param model
-	 * @return
-	 * @throws Exception
-	 */
-	
-	@PostMapping("/amazon2/cart/{operation}/{cartId}") // TO change
-	public String cartAdd(
-			@PathVariable String cartId,
-			@PathVariable String operation,
-			@RequestParam(required = true) String hmac,
-			@RequestParam(required = true) String asin, 
-			@RequestParam(required = false) String quantity
-			) 
-			throws Exception {
-		
-		log.info(" POST - /cart/"+cartId);
-		log.info("asin : "+ asin + "| quantity : "  + quantity + "| operation : " + operation);
-		
-		String responseGroup = "Cart";
-		
-		HttpStatus statusCode;
-		Cart cart;
-		OperationRequest operationRequest;
-		
-		
-		String targetUrl = this.amazonMarketService.cartAddSample(cartId, hmac, asin, quantity, responseGroup, operation);
-		URI targetURI;
-
-		targetURI = new URI(targetUrl);
-		
-		// reformat with Previous get service 
-		
-		// TODO Move to service 
-		if (operation.equalsIgnoreCase("CartAdd")) {
-			log.info(" POST - CartAdd");
-			ResponseEntity<CartAddResponse> result = restTemplate.exchange(targetURI, HttpMethod.GET, null, CartAddResponse.class);
-			operationRequest = result.getBody().getOperationRequest();
-			cart = result.getBody().getCart().get(0);
-			statusCode = result.getStatusCode();
-			log.info(statusCode.toString());
-		}
-		else if (operation.equalsIgnoreCase("CartModify")) {
-			log.info(" POST - CartModify");
-			ResponseEntity<CartModifyResponse> result = restTemplate.exchange(targetURI, HttpMethod.GET, null, CartModifyResponse.class);
-			operationRequest = result.getBody().getOperationRequest();
-			cart = result.getBody().getCart().get(0);
-			statusCode = result.getStatusCode();
-			log.info(statusCode.toString());
-		}
-
-		return "redirect:/cart/"+cartId;	
 	}
 
 }
