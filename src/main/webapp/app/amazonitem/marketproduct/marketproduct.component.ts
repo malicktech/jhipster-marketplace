@@ -25,7 +25,8 @@ selectedProduct: Product;
     private location: Location,
     private productService: ProductService
   ) {
-    // console.log('constructor');
+    console.log('MarketproductComponent constructor');
+    route.params.subscribe(val => this.ngOnInit())
   }
 
   // ngOnInit method with the initialization logic inside
@@ -38,7 +39,7 @@ selectedProduct: Product;
     //   .switchMap((params: Params) => this.productService.getProducts(params['market'], params['searchindex'], params['query'], '1'))
     //   .subscribe(products => this.products = products);
 
-    // console.log('market');
+    console.log('MarketproductComponent ngOnInit');
 
     this.route.params.subscribe((params) => {
       // if (params['market']) {
@@ -61,11 +62,12 @@ selectedProduct: Product;
   // use Promises, To coordinate the view with the response,
   // Pass the callback function as an argument to the Promise's then() method:
   getHeroes(market: string, searchindex: string, query: string, itempage: string): void {
-    this.productService.getProducts(market, searchindex, query, itempage).then((products) => this.products = products); // call the service and get the data in one line
+    this.productService.getProducts(market, searchindex, query, itempage)
+    .then((products) => this.products = products); // call the service and get the data in one line
   }
 
-  // goToPage(pageNum) {
-  //   this.router.navigate(['/product-list'], { queryParams: { page: pageNum } });
+  // goToPage(pageNum : string) {
+  //   this.router.navigate(['/marketproduct'], { queryParams: { page: pageNum } });
   // }
 
 /*

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Formsearch } from './search-form';
+import { ProductService } from '../../amazonitem/marketproduct/product.service';
 
 @Component({
     selector: 'jhi-search-form',
@@ -18,14 +19,17 @@ export class SearchFormComponent {
     submitted = false;
 
     constructor(
-        private router: Router
+        private router: Router,
+        private route: ActivatedRoute,
+        private productService: ProductService
     ) { }
 
     onSubmit() {
         this.submitted = true;
-        console.log(this.model.query);
-        console.log(this.model);
-        this.router.navigate(['/marketproduct', { market: this.model.market, searchindex: this.model.searchindex, query: this.model.query } ]);
+        // console.log(this.model);
+        this.productService.getProducts(this.model.market, this.model.searchindex, this.model.query, '1')
+        .then((products) => { this.router.navigate(['/marketproduct', { market: this.model.market, searchindex: this.model.searchindex, query: this.model.query } ]); });
+        // this.router.navigate(['/marketproduct', { market: this.model.market, searchindex: this.model.searchindex, query: this.model.query } ]);
     }
 
     // TODO: Remove this when we're done

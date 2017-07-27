@@ -14,8 +14,27 @@ export class CartService {
 
     constructor(private http: Http) { }
 
+    /**
+     * Get or CLear cart
+     * 
+     * @param market 
+     * @param operation 
+     * @param cartId 
+     * @param hmac 
+     */
     getCart(market: string, operation: String, cartId: String, hmac: String, ): Promise<Cart> {
         const path = `${market}/cart/${operation}/${cartId}?hmac=${hmac}`;
+        console.log(path);
+        const url = `${this.apiUrl}/${path}`;
+
+        return this.http.get(url)
+            .toPromise()
+            .then((response) => response.json() as Cart)
+            .catch(this.handleError);
+    }
+
+    addToCart(market: string, operation: String, cartId: String, hmac: String, asin: Number, quantity: Number ): Promise<Cart> {
+        const path = `${market}/cart/${operation}/${cartId}?asin=${asin}&quantity=${quantity}&hmac=${hmac}`;
         console.log(path);
         const url = `${this.apiUrl}/${path}`;
 

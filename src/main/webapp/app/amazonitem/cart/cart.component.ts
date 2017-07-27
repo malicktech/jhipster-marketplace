@@ -31,6 +31,21 @@ export class CartComponent implements OnInit {
 
   }
 
+ /**
+   * Clear cart
+   */
+  clearCart(): void {
+    this.cartService.getCart('amazon', 'CartClear', '260-9694202-3088431', 'N4Zh3pvolpFwRf1ys0KyvUgw1/A=')
+      .then((cart) => this.cart = cart)
+      // chaine multiple - composition chianing - promise chaining
+      // .then((cart) => this.router.navigate(['/cart', 'CartGet', this.cart.cartId]))
+      // error
+      .catch((err) => {
+        console.log('Error callback', err); // This will NOT be called
+      });
+    // this.router.navigate(['/product-list'], { queryParams: { page: pageNum } });
+  }
+
 goBack(): void {
     this.location.back();
   }

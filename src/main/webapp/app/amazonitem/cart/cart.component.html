@@ -12,7 +12,7 @@
     <div class="row">
 
         <div class=" col-md-9">
-            <div *ngIf="cart.cartItem">
+            <div *ngIf="cart">
                 <div *ngFor="let product of cart.cartItem" class="card row" style="flex-direction: initial;">
                     <div class="col-md-2">
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/08/x-site/icons/no-img-lg._V192209323_BO1,204,203,200_.gif" alt="Card image cap"
@@ -37,7 +37,8 @@
                     <div class="card-block">
                         <h6 class="card-subtitle mb-2 text-muted">{{cart.subTotal}}</h6>
                         <p class="card-text">Livraison gratuite</p>
-                        <a href="{{cart.purchaseURL}}" class="btn btn-primary">Ajout</a>
+                        <!--<a href="{{cart.purchaseURL}}" class="btn btn-primary">Add</a>-->
+                        <a (click)="clearCart()" class="btn btn-danger">Clear</a>
                     </div>
                 </div>
             </div>
