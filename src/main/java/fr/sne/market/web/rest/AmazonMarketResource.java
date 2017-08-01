@@ -14,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +22,7 @@ import org.springframework.web.client.RestTemplate;
 import com.amazon.api.ECS.client.jax.Cart;
 import com.amazon.api.ECS.client.jax.CartAddResponse;
 import com.amazon.api.ECS.client.jax.CartClearResponse;
+import com.amazon.api.ECS.client.jax.CartCreateResponse;
 import com.amazon.api.ECS.client.jax.CartGetResponse;
 import com.amazon.api.ECS.client.jax.CartItem;
 import com.amazon.api.ECS.client.jax.CartItems;
@@ -54,8 +54,7 @@ public class AmazonMarketResource {
 	private final Logger log = LoggerFactory.getLogger(AmazonMarketResource.class);
 
 	private final AmazonMarketService amazonMarketService;
-	private final RestTemplate restTemplate;
-	// todo - move in service
+	private final RestTemplate restTemplate; // todo - move in service
 	private final MarketItemMapper marketItemMapper;
 	private final MarketItemDetailsMapper marketItemDetailsMapper;
 	private final CartMapper cartMapper;
@@ -75,7 +74,8 @@ public class AmazonMarketResource {
 
 	/**
 	 * SEARCH /search/products?query=:query : search for the product
-	 * corresponding to the query.
+	 * corresponding to the query. ItemSearch returns up to 10 search results
+	 * per page
 	 */
 	@GetMapping("/amazon/search")
 	@Timed
@@ -172,7 +172,7 @@ public class AmazonMarketResource {
 	 * items in a remote shopping cart, including SavedForLater items
 	 */
 	@GetMapping("/amazon/cart/{operation}/{cartId}")
-	public ResponseEntity<CartDTO> getCart(@PathVariable String cartId, @PathVariable String operation,
+	public ResponseEntity<CartDTO> manageAmazonCart(@PathVariable String cartId, @PathVariable String operation,
 			@RequestParam(required = true) String hmac, @RequestParam(required = false) String asin,
 			@RequestParam(required = false) String quantity) throws Exception {
 
@@ -197,6 +197,7 @@ public class AmazonMarketResource {
 			operationRequest = result.getBody().getOperationRequest();
 			cart = result.getBody().getCart().get(0);
 			statusCode = result.getStatusCode();
+
 		} else if (operation.equalsIgnoreCase("CartAdd")) {
 			String targetUrl = this.amazonMarketService.cartAddSample(cartId, hmac, asin, quantity, responseGroup,
 					operation);
@@ -209,6 +210,7 @@ public class AmazonMarketResource {
 			cart = result.getBody().getCart().get(0);
 			statusCode = result.getStatusCode();
 			log.info(statusCode.toString());
+
 		} else if (operation.equalsIgnoreCase("CartModify")) {
 			String targetUrl = this.amazonMarketService.cartAddSample(cartId, hmac, asin, quantity, responseGroup,
 					operation);
@@ -267,6 +269,66 @@ public class AmazonMarketResource {
 		return Optional.ofNullable(cartDTO).map(response -> ResponseEntity.ok().headers(header).body(response))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 
+	}
+
+	/**
+	 * Create a new cart
+	 */
+	@GetMapping("/amazon/cart/CartCreate")
+	public ResponseEntity<CartDTO> createAmazonCart(@RequestParam(required = true) String operation,
+			@RequestParam(required = false) String asin, @RequestParam(required = false) String quantity)
+			throws Exception {
+
+		log.info(" GET - /cart/CartCreate");
+		log.info("[asin = " + asin + "] [quantity = " + quantity + "] [operation = " + operation + "]");
+
+		log.info("checkCreateCartForm()");
+
+		HttpStatus statusCode;
+		Cart cart;
+		OperationRequest operationRequest;
+
+		URI targetURI;
+		String targetUrl = this.amazonMarketService.createCartSample(asin, quantity, "Cart");
+
+		targetURI = new URI(targetUrl);
+
+		ResponseEntity<CartCreateResponse> result = restTemplate.exchange(targetURI, HttpMethod.GET, null,
+				CartCreateResponse.class);
+
+		operationRequest = result.getBody().getOperationRequest();
+		statusCode = result.getStatusCode();
+		log.info("statusCode : " + statusCode);
+		// log.info("getCart().size() : " + result.getBody().getCart().size());
+
+		cart = result.getBody().getCart().get(0);
+		// log.info(cart.toString());
+
+		if (statusCode == HttpStatus.OK) {
+			Errors errors = cart.getRequest().getErrors();
+
+			if (errors != null && errors.getError().size() > 0) {
+				log.info(errors.getError().get(0).toString());
+				log.info("errorCode : " + errors.getError().get(0).getCode());
+				log.info("errorMsg : " + errors.getError().get(0).getMessage());
+			} else {
+				log.info("cart");
+			}
+		} else if (statusCode == HttpStatus.SERVICE_UNAVAILABLE) {
+			log.info("serviceUnavailable", "Amazon Service is Currently Unavailable ");
+		}
+
+		CartDTO cartDTO = this.cartMapper.cartToCartDTO(cart);
+		Optional<Cart> optionalCart = Optional.ofNullable(cart);
+		Optional<List<CartItem>> optionalCartItems = optionalCart.map(Cart::getCartItems).map(CartItems::getCartItem);
+		if (optionalCartItems.isPresent()) {
+			List<CartItemDTO> cartItemDTO = this.cartItemMapper.toDTOs(optionalCartItems.get());
+			cartDTO.setCartItem(cartItemDTO);
+		}
+
+		HttpHeaders header = null;
+		return Optional.ofNullable(cartDTO).map(response -> ResponseEntity.ok().headers(header).body(response))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 
 }
