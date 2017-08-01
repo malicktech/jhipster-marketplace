@@ -4,7 +4,7 @@
       "packageName": "fr.sne.market",
       "nativeLanguage": "fr"
     },
-    "jhipsterVersion": "4.5.3",
+    "jhipsterVersion": "4.6.2",
     "baseName": "market",
     "packageName": "fr.sne.market",
     "packageFolder": "fr/sne/market",
@@ -22,7 +22,7 @@
     "buildTool": "maven",
     "enableSocialSignIn": true,
     "jwtSecretKey": "5f12d475254a04300fd6960cdbf8f23a3382f8ff",
-    "clientFramework": "angular2",
+    "clientFramework": "angularX",
     "useSass": true,
     "clientPackageManager": "yarn",
     "applicationType": "monolith",

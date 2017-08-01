@@ -1,5 +1,5 @@
-var dataCacheName = '"Market-v1';
-var cacheName = '"Market-1';
+var dataCacheName = 'Market-v1';
+var cacheName = 'Market-1';
 var filesToCache = [
     '/',
     '/index.html'

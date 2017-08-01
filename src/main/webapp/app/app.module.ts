@@ -9,15 +9,13 @@ import { MarketHomeModule } from './home/home.module';
 import { MarketAdminModule } from './admin/admin.module';
 import { MarketAccountModule } from './account/account.module';
 import { MarketEntityModule } from './entities/entity.module';
-import { AmazonitemModule } from './amazonitem/amazonitem.module';
-import { AmazonCartModule } from './amazoncart/amazoncart.module';
-
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CustomMaterialModule } from './custom-material/custom-material.module';
 
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
+
+// jhipster-needle-angular-add-module-import JHipster will add new module here
+import { AmazonitemModule } from './amazonitem/amazonitem.module'; 
+import { AmazonCartModule } from './amazoncart/amazoncart.module'; 
 
 import {
     JhiMainComponent,
@@ -27,7 +25,7 @@ import {
     ProfileService,
     PageRibbonComponent,
     ActiveMenuDirective,
-    ErrorComponent,
+    ErrorComponent
 } from './layouts';
 
 @NgModule({
@@ -40,10 +38,9 @@ import {
         MarketAdminModule,
         MarketAccountModule,
         MarketEntityModule,
-        AmazonitemModule,
-        AmazonCartModule,
-        BrowserAnimationsModule,
-        CustomMaterialModule
+        // jhipster-needle-angular-add-module JHipster will add new module here
+        AmazonitemModule, 
+        AmazonCartModule, 
     ],
     declarations: [
         JhiMainComponent,
