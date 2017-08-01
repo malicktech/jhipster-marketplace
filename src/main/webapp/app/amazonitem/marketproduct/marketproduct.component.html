@@ -3,23 +3,33 @@
 use card, card layout, use card-link
 -->
 
+<!--<router-outlet name="search-form"></router-outlet>-->
+<jhi-search-form></jhi-search-form>
+
+<div class="row">
+  <a class="nav-link" routerLink="/cart">
+    <i class="fa fa-home" aria-hidden="true"></i>
+    <span>Cart</span>
+  </a>
+</div>
+
 <h2>Product List</h2>
 <div class="container">
   <div class="products row">
     <div class="card-group">
       <!--col-sm-4 col-md-3-->
-    <div *ngFor="let product of products" class="card" style="width: 20rem;">
-      <img src="{{product.mainImageUrl}}" alt="Card image cap" class="card-img-top img-fluid mx-auto">
-      <div class="card-block">
-        <div class="card-title">{{product.title}}</div>
-        <!--<h6 class="text-center">{{product.asin}}</h6>-->
-        <a class="text-center" [routerLink]="['/product', product.asin]">{{product.asin}}</a>
-        <p class="col-sm-12 text-center">{{product.price}}</p>
-        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-        <!--<a href="#" class="btn btn-primary text-center" routerLink="['product', {{product.asin}}]" (click)="gotoDetail()">View Details</a>-->
-        
+      <div *ngFor="let product of products" class="card" style="width: 20rem;">
+        <img src="{{product.mainImageUrl}}" alt="Card image cap" class="card-img-top img-fluid mx-auto">
+        <div class="card-block">
+          <div class="card-title">{{product.title}}</div>
+          <!--<h6 class="text-center">{{product.asin}}</h6>-->
+          <a class="text-center" [routerLink]="['/product', product.asin]">{{product.asin}}</a>
+          <p class="col-sm-12 text-center">{{product.price}}</p>
+          <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+          <!--<a href="#" class="btn btn-primary text-center" routerLink="['product', {{product.asin}}]" (click)="gotoDetail()">View Details</a>-->
+
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </div>

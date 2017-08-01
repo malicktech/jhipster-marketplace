@@ -33,13 +33,22 @@ selectedProduct: Product;
   // called after the constructor and called  after the first ngOnChanges()
 
   ngOnInit(): void {
+
+    // each time the search data is change you'll get this running
+     //Do what ever you need to refresh your search page
+         console.log('MarketproductComponent ngOnInit - New route params');
+
+
     // get URL parameters
 
     // this.route.params
     //   .switchMap((params: Params) => this.productService.getProducts(params['market'], params['searchindex'], params['query'], '1'))
     //   .subscribe(products => this.products = products);
 
-    console.log('MarketproductComponent ngOnInit');
+
+// this.route.params
+//       .switchMap((params: Params) => this.productService.getProduct('amazon', params['asin']))
+//       .subscribe((product) => this.product = product);
 
     this.route.params.subscribe((params) => {
       // if (params['market']) {
@@ -48,6 +57,10 @@ selectedProduct: Product;
       //     this.productService.getProducts(market, searchindex, query, '1')
       //     .then(products => {this.products = products;});
       //   });
+
+      console.log('MarketproductComponent subscribe');
+      // this.resetComponentState(); // based on new parameter this time
+
       const market = params['market'] || 'amazon';
       const searchindex = params['searchindex'] || 'Books';
       const query = params['query'] || 'diome';

@@ -1,34 +1,31 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
-import { CommonModule } from '@angular/common';
 
 import { MarketSharedModule } from '../shared';
 
 import {
   MarketproductComponent,
   ProductDetailsComponent,
-  CartComponent,
   ProductService,
-  CartService,
-  amazonitemState
+  amazonitemState,
+  SearchFormComponent
+
 } from './';
 
 @NgModule({
   imports: [
     MarketSharedModule,
-    CommonModule,
     RouterModule.forRoot(amazonitemState, { useHash: true })
   ],
   declarations: [
     MarketproductComponent,
     ProductDetailsComponent,
-    CartComponent
+    SearchFormComponent,
   ],
   providers: [
     ProductService,
-    CartService
   ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
 export class AmazonitemModule { }

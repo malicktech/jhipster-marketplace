@@ -5,8 +5,8 @@ import { Location } from '@angular/common';
 import { ProductService } from '../marketproduct/product.service';
 import { Product } from '../marketproduct/product-model';
 
-import { CartService } from '../cart/cart.service';
-import { Cart } from '../cart/cart.model';
+import { CartService } from '../../amazoncart/cart.service';
+import { Cart } from '../../amazoncart/cart.model';
 
 import { CartAddForm } from './cart-add-form';
 
@@ -50,7 +50,8 @@ export class ProductDetailsComponent implements OnInit {
     this.cartService.addToCart('amazon', 'CartAdd', '260-9694202-3088431', 'N4Zh3pvolpFwRf1ys0KyvUgw1/A=', this.product.asin, 1)
       .then((cart) => this.cart = cart)
       // chaine multiple - composition chianing - promise chaining
-      .then((cart) => this.router.navigate(['/cart', 'CartGet', this.cart.cartId]))
+      // .then((cart) => this.router.navigate(['/cart', 'CartGet', this.cart.cartId])) // rigth way
+      .then((cart) => this.router.navigate(['/cart']))
       // error
       .catch((err) => {
         console.log('Error callback', err); // This will NOT be called

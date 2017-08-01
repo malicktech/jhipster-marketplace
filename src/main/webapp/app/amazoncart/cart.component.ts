@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { CartService } from '../cart/cart.service';
-import { Cart } from '../cart/cart.model';
+import { CartService } from './cart.service';
+import { Cart } from './cart.model';
 
 @Component({
   selector: 'jhi-cart',
@@ -13,27 +13,32 @@ import { Cart } from '../cart/cart.model';
 export class CartComponent implements OnInit {
 
   cart: Cart;
-//   cartId : '260-9694202-3088431';
-//   operation: 'CartGet';
-  // hmac: 'N4Zh3pvolpFwRf1ys0KyvUgw1/A=';
-  // CartClear
-  // CartGet
+  cartId: String;
+  operation: String;
+  hmac: String;
+
 
   constructor(private cartService: CartService,
-    private route: ActivatedRoute,
-    private location: Location) { }
+    // private route: ActivatedRoute,
+    // private location: Location
+    ) { }
 
   ngOnInit(): void {
 
-    this.route.params
-      .switchMap((params: Params) => this.cartService.getCart('amazon', params['operation'], params['cartId'],  'N4Zh3pvolpFwRf1ys0KyvUgw1/A=' ))
-      .subscribe((cart) => this.cart = cart);
+    // this.route.params
+    //   .switchMap((params: Params) => this.cartService.getCart('amazon', params['operation'], params['cartId'],  'N4Zh3pvolpFwRf1ys0KyvUgw1/A=' ))
+    //   .subscribe((cart) => this.cart = cart);
+    this.cartId = '260-9694202-3088431';
+    this.operation = 'CartGet';
+    this.hmac = 'N4Zh3pvolpFwRf1ys0KyvUgw1/A=';
+    this.cartService.getCart('amazon', this.operation, this.cartId, this.hmac)
+      .then((cart) => { this.cart = cart; });
 
   }
 
- /**
-   * Clear cart
-   */
+  /**
+    * Clear cart
+    */
   clearCart(): void {
     this.cartService.getCart('amazon', 'CartClear', '260-9694202-3088431', 'N4Zh3pvolpFwRf1ys0KyvUgw1/A=')
       .then((cart) => this.cart = cart)
@@ -46,8 +51,8 @@ export class CartComponent implements OnInit {
     // this.router.navigate(['/product-list'], { queryParams: { page: pageNum } });
   }
 
-goBack(): void {
-    this.location.back();
+  goBack(): void {
+    // this.location.back();
   }
 
 }

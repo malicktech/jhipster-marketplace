@@ -10,6 +10,8 @@ import { MarketAdminModule } from './admin/admin.module';
 import { MarketAccountModule } from './account/account.module';
 import { MarketEntityModule } from './entities/entity.module';
 import { AmazonitemModule } from './amazonitem/amazonitem.module';
+import { AmazonCartModule } from './amazoncart/amazoncart.module';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
@@ -26,7 +28,6 @@ import {
     PageRibbonComponent,
     ActiveMenuDirective,
     ErrorComponent,
-    SearchFormComponent
 } from './layouts';
 
 @NgModule({
@@ -40,13 +41,13 @@ import {
         MarketAccountModule,
         MarketEntityModule,
         AmazonitemModule,
+        AmazonCartModule,
         BrowserAnimationsModule,
         CustomMaterialModule
     ],
     declarations: [
         JhiMainComponent,
         NavbarComponent,
-        SearchFormComponent,
         ErrorComponent,
         PageRibbonComponent,
         ActiveMenuDirective,
