@@ -44,6 +44,17 @@ export class CartService {
             .catch(this.handleError);
     }
 
+    createCart(market: string, operation: String, asin: Number, quantity: Number ): Promise<Cart> {
+        const path = `${market}/cart/${operation}?asin=${asin}&quantity=${quantity}`;
+        console.log(path);
+        const url = `${this.apiUrl}/${path}`;
+
+        return this.http.get(url)
+            .toPromise()
+            .then((response) => response.json() as Cart)
+            .catch(this.handleError);
+    }
+
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);

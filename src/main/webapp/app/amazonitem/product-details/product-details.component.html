@@ -1,9 +1,25 @@
 <div class="container-fluid">
-  <button (click)="goBack()">Back</button>
+  <div class="row">
+    <a class="nav-link" (click)="goBack()">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    <span>Back</span>
+  </a>
+    <a class="nav-link" routerLink="/marketproduct">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <span>Search</span>
+  </a>
+    <a class="nav-link" routerLink="/cart">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    <span>Cart</span>
+  </a>
+  </div>
 </div>
 
 
+
+
 <div class="container">
+  <h2>ITEM Lookup</h2>
   <div class="row">
     <div class=" col-md-6">
       <div class="card">
@@ -29,7 +45,14 @@
             <div class="card-block">
               <h4 class="card-title">{{product.price}}</h4>
               <p class="card-text">Livraison gratuite</p>
-              <a (click)="addToCart()" class="btn btn-primary">Ajout</a>
+              <div class="input-group">
+                <button (click)="minus()"><i class="fa fa-minus"></i></button>
+                <input readonly type="number" name="quantity" min="1" max="3" size="1" [(ngModel)]="quantity">
+                <button (click)="plus()"><i class="fa fa-plus"></i></button>
+              </div>
+              <p>
+              <button (click)="addToCart()">Ajout</button>
+              </p>
             </div>
           </div>
         </div>

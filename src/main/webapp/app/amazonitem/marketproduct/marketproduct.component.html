@@ -18,15 +18,27 @@ use card, card layout, use card-link
                 </a> 
             </li>
             -->
-<!--<router-outlet name="search-form"></router-outlet>-->
-<jhi-search-form></jhi-search-form>
 
-<div class="row">
-  <a class="nav-link" routerLink="/cart">
-    <i class="fa fa-home" aria-hidden="true"></i>
+
+<div class="container-fluid">
+  <div class="row">
+    <a class="nav-link" (click)="goBack()">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    <span>Back</span>
+  </a>
+    <a class="nav-link" routerLink="/marketproduct">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <span>Search</span>
+  </a>
+    <a *ngIf="cartLinkEnabled" class="nav-link" routerLink="/cart">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
     <span>Cart</span>
   </a>
+  </div>
 </div>
+
+<!--<router-outlet name="search-form"></router-outlet>-->
+<jhi-search-form></jhi-search-form>
 
 <h2>Product List</h2>
 <div class="container">

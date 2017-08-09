@@ -6,7 +6,7 @@ export const CART_ROUTE: Route = {
     path: 'cart',
     component: CartComponent,
     data: {
-        authorities: [],
+        authorities: []
         // pageTitle: 'home.title'
     }
 };

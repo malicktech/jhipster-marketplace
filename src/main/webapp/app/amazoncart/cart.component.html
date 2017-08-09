@@ -1,20 +1,36 @@
-<!--
-    <div class="container-fluid">
-    <button (click)="goBack()">Back</button>
-    </div>
--->
-
 <!--<div class="container">
     <div class="row">
         <pre>{{cart | json}}</pre>
     </div>
 </div>-->
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
+        <a class="nav-link" (click)="goBack()">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    <span>Back</span>
+  </a>
+        <a class="nav-link" routerLink="/marketproduct">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <span>Search</span>
+  </a>
+        <a class="nav-link" routerLink="/cart">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    <span>Cart</span>
+  </a>
+    </div>
+</div>
+
+<!--<jhi-search-form></jhi-search-form>-->
+
+
+<div class="container">
+    <h2>Cart</h2>
+
+    <div class="row" *ngIf="cart.cartItem else elseBlock">
 
         <div class=" col-md-9">
-            <div *ngIf="cart">
+            <div>
                 <div *ngFor="let product of cart.cartItem" class="card row" style="flex-direction: initial;">
                     <div class="col-md-2">
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/08/x-site/icons/no-img-lg._V192209323_BO1,204,203,200_.gif" alt="Card image cap"
@@ -47,4 +63,7 @@
         </div>
 
     </div>
+
+    <ng-template #elseBlock>No product in cart</ng-template>
+
 </div>

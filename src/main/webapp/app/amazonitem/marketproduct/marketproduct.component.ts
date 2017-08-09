@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
+
 import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
 
@@ -15,15 +17,22 @@ import { ProductService } from './product.service';
 })
 export class MarketproductComponent implements OnInit {
 
-products: Product[];
-selectedProduct: Product;
+  products: Product[];
+  selectedProduct: Product;
+
+  sessionCartId: String;
+  sessionCartIdHmac: String;
+
+  cartLinkEnabled: boolean;
 
   // called first time before the ngOnInit()
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private location: Location,
-    private productService: ProductService
+    private productService: ProductService,
+    private localStorage: LocalStorageService,
+    private sessionStorage: SessionStorageService
   ) {
     console.log('MarketproductComponent constructor');
     route.params.subscribe(val => this.ngOnInit())
@@ -33,10 +42,18 @@ selectedProduct: Product;
   // called after the constructor and called  after the first ngOnChanges()
 
   ngOnInit(): void {
+    this.sessionCartId = this.localStorage.retrieve('sessionCartId') || this.sessionStorage.retrieve('sessionCartId');
+    if (!!this.sessionCartId) {
+      console.log('sessionCartId :' + this.sessionCartId);
+    }
+
+    this.sessionCartIdHmac = this.localStorage.retrieve('sessionCartIdHmac') || this.sessionStorage.retrieve('sessionCartIdHmac');
+
+    this.cartLinkEnabled = (!!this.sessionCartId && !!this.sessionCartIdHmac) ? true : false;
 
     // each time the search data is change you'll get this running
-     //Do what ever you need to refresh your search page
-         console.log('MarketproductComponent ngOnInit - New route params');
+    //Do what ever you need to refresh your search page
+    console.log('MarketproductComponent ngOnInit - New route params');
 
 
     // get URL parameters
@@ -46,9 +63,9 @@ selectedProduct: Product;
     //   .subscribe(products => this.products = products);
 
 
-// this.route.params
-//       .switchMap((params: Params) => this.productService.getProduct('amazon', params['asin']))
-//       .subscribe((product) => this.product = product);
+    // this.route.params
+    //       .switchMap((params: Params) => this.productService.getProduct('amazon', params['asin']))
+    //       .subscribe((product) => this.product = product);
 
     this.route.params.subscribe((params) => {
       // if (params['market']) {
@@ -76,16 +93,20 @@ selectedProduct: Product;
   // Pass the callback function as an argument to the Promise's then() method:
   getHeroes(market: string, searchindex: string, query: string, itempage: string): void {
     this.productService.getProducts(market, searchindex, query, itempage)
-    .then((products) => this.products = products); // call the service and get the data in one line
+      .then((products) => this.products = products); // call the service and get the data in one line
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   // goToPage(pageNum : string) {
   //   this.router.navigate(['/marketproduct'], { queryParams: { page: pageNum } });
   // }
 
-/*
-  gotoDetail(): void {
-    this.router.navigate(['/marketproduct', this.selectedProduct.asin]);
-  }
-  */
+  /*
+    gotoDetail(): void {
+      this.router.navigate(['/marketproduct', this.selectedProduct.asin]);
+    }
+    */
 }

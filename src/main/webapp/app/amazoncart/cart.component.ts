@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
+
 import { CartService } from './cart.service';
 import { Cart } from './cart.model';
 
@@ -16,22 +18,31 @@ export class CartComponent implements OnInit {
   cartId: String;
   operation: String;
   hmac: String;
+  sessionCartId: String;
+  sessionCartIdHmac: String;
 
 
   constructor(private cartService: CartService,
     // private route: ActivatedRoute,
-    // private location: Location
-    ) { }
+    private location: Location,
+    private localStorage: LocalStorageService,
+    private sessionStorage: SessionStorageService
+  ) { }
 
   ngOnInit(): void {
+    
+    this.sessionCartId = this.localStorage.retrieve('sessionCartId') || this.sessionStorage.retrieve('sessionCartId');
+    if (!!this.sessionCartId) {
+      console.log('sessionCartId :' + this.sessionCartId);
+    }
+    this.sessionCartIdHmac = this.localStorage.retrieve('sessionCartIdHmac') || this.sessionStorage.retrieve('sessionCartIdHmac');
+    if (!!this.sessionCartId) {
+      console.log('sessionCartIdHmac :' + this.sessionCartIdHmac);
+    }
 
-    // this.route.params
-    //   .switchMap((params: Params) => this.cartService.getCart('amazon', params['operation'], params['cartId'],  'N4Zh3pvolpFwRf1ys0KyvUgw1/A=' ))
-    //   .subscribe((cart) => this.cart = cart);
-    this.cartId = '260-9694202-3088431';
     this.operation = 'CartGet';
-    this.hmac = 'N4Zh3pvolpFwRf1ys0KyvUgw1/A=';
-    this.cartService.getCart('amazon', this.operation, this.cartId, this.hmac)
+
+    this.cartService.getCart('amazon', this.operation, this.sessionCartId, this.sessionCartIdHmac)
       .then((cart) => { this.cart = cart; });
 
   }
@@ -40,7 +51,7 @@ export class CartComponent implements OnInit {
     * Clear cart
     */
   clearCart(): void {
-    this.cartService.getCart('amazon', 'CartClear', '260-9694202-3088431', 'N4Zh3pvolpFwRf1ys0KyvUgw1/A=')
+    this.cartService.getCart('amazon', 'CartClear', this.sessionCartId, this.sessionCartIdHmac)
       .then((cart) => this.cart = cart)
       // chaine multiple - composition chianing - promise chaining
       // .then((cart) => this.router.navigate(['/cart', 'CartGet', this.cart.cartId]))
@@ -52,7 +63,7 @@ export class CartComponent implements OnInit {
   }
 
   goBack(): void {
-    // this.location.back();
+    this.location.back();
   }
 
 }
