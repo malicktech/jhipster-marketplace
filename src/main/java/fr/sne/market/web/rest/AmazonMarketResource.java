@@ -275,12 +275,12 @@ public class AmazonMarketResource {
 	 * Create a new cart
 	 */
 	@GetMapping("/amazon/cart/CartCreate")
-	public ResponseEntity<CartDTO> createAmazonCart(@RequestParam(required = true) String operation,
-			@RequestParam(required = false) String asin, @RequestParam(required = false) String quantity)
+	public ResponseEntity<CartDTO> createAmazonCart(
+			@RequestParam(required = true) String asin, @RequestParam(required = true) String quantity)
 			throws Exception {
 
 		log.info(" GET - /cart/CartCreate");
-		log.info("[asin = " + asin + "] [quantity = " + quantity + "] [operation = " + operation + "]");
+		log.info("[asin = " + asin + "] [quantity = " + quantity + "]");
 
 		log.info("checkCreateCartForm()");
 
