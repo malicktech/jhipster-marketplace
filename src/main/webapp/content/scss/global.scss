@@ -243,3 +243,30 @@ Social button
     color: #fff;
 }
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+
+/* CUSTOM - Navbar */
+.navbar-brand {
+    &.logo {
+        padding: 5px 15px;
+        .logo-img {
+            height: 50px !important;
+            width: 160px !important;
+            background: url("../images/logo-jhipster.png") no-repeat center center !important;
+            background-size: contain !important;
+        }
+    }
+}
+/* CUSTOM - Home  */
+.hipster {
+    width: 347px !important;
+    height: 497px !important;
+    background: url("../images/market-place.jpg") no-repeat center top !important;
+    background-size: contain !important;
+}
+.hipster2 {
+    display: inline-block;
+    width: 983px !important;
+    height: 179px !important;
+    background: url("../images/market-place-2.png") no-repeat center top ;
+    background-size: contain;
+}
