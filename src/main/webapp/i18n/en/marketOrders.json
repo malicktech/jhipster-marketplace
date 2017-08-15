@@ -1,0 +1,34 @@
+{
+    "marketApp": {
+        "marketOrders" : {
+            "home": {
+                "title": "Market Orders",
+                "createLabel": "Create a new Market Orders",
+                "createOrEditLabel": "Create or edit a Market Orders",
+                "search": "Search for Market Orders"
+            },
+            "created": "A new Market Orders is created with identifier {{ param }}",
+            "updated": "A Market Orders is updated with identifier {{ param }}",
+            "deleted": "A Market Orders is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Market Orders {{ id }}?"
+            },
+            "detail": {
+                "title": "Market Orders"
+            },
+            "orderDate": "Order Date",
+            "shipdate": "Shipdate",
+            "totalPrice": "Total Price",
+            "discount": "Discount",
+            "weight": "Weight",
+            "trackingNumber": "Tracking Number",
+            "ordertatus": "Ordertatus",
+            "remoteVirtualCardId": "Remote Virtual Card Id",
+            "marketOrderId": "Market Order Id",
+            "payment": "Payment",
+            "shipper": "Shipper",
+            "quantity": "Quantity",
+            "customer": "Customer"
+        }
+    }
+}

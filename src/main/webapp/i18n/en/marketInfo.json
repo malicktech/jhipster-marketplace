@@ -1,0 +1,24 @@
+{
+    "marketApp": {
+        "marketInfo" : {
+            "home": {
+                "title": "Market Infos",
+                "createLabel": "Create a new Market Info",
+                "createOrEditLabel": "Create or edit a Market Info",
+                "search": "Search for Market Info"
+            },
+            "created": "A new Market Info is created with identifier {{ param }}",
+            "updated": "A Market Info is updated with identifier {{ param }}",
+            "deleted": "A Market Info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Market Info {{ id }}?"
+            },
+            "detail": {
+                "title": "Market Info"
+            },
+            "key": "Key",
+            "value": "Value",
+            "market": "Market"
+        }
+    }
+}

@@ -1,0 +1,37 @@
+
+<div *ngIf="customer">
+    <h2><span jhiTranslate="marketApp.customer.detail.title">Customer</span> {{customer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="marketApp.customer.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{customer.phoneNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.customer.gender">Gender</span></dt>
+        <dd>
+            <span jhiTranslate="{{'marketApp.Gender.' + customer.gender}}">{{customer.gender}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.customer.dateOfBirth">Date Of Birth</span></dt>
+        <dd>
+            <span>{{customer.dateOfBirth | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.customer.user">User</span></dt>
+        <dd>
+            {{customer.userId}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'customer/'+ customer.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

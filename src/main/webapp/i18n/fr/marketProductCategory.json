@@ -1,0 +1,23 @@
+{
+    "marketApp": {
+        "marketProductCategory" : {
+            "home": {
+                "title": "MarketProductCategories",
+                "createLabel": "Créer un nouveau Market Product Category",
+                "createOrEditLabel": "Créer ou éditer un Market Product Category",
+                "search": "Recherche pour Market Product Category"
+            },
+            "created": "Un nouveau Market Product Category a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Market Product Category avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Market Product Category avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Market Product Category {{ id }} ?"
+            },
+            "detail": {
+                "title": "Market Product Category"
+            },
+            "title": "Title",
+            "description": "Description"
+        }
+    }
+}

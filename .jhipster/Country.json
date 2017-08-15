@@ -1,0 +1,24 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "region",
+            "otherEntityName": "region",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "country"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "countryName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170815131216",
+    "entityTableName": "country",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no"
+}

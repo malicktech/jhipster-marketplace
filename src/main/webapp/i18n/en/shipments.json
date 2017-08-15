@@ -1,0 +1,25 @@
+{
+    "marketApp": {
+        "shipments" : {
+            "home": {
+                "title": "Shipments",
+                "createLabel": "Create a new Shipments",
+                "createOrEditLabel": "Create or edit a Shipments",
+                "search": "Search for Shipments"
+            },
+            "created": "A new Shipments is created with identifier {{ param }}",
+            "updated": "A Shipments is updated with identifier {{ param }}",
+            "deleted": "A Shipments is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Shipments {{ id }}?"
+            },
+            "detail": {
+                "title": "Shipments"
+            },
+            "shipperType": "Shipper Type",
+            "companyName": "Company Name",
+            "phone": "Phone",
+            "order": "Order"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "marketProduct",
+            "otherEntityName": "marketProduct",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "key",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170815131228",
+    "javadoc": "Attributes / deatils of product: color, size, ..",
+    "entityTableName": "market_product_attributes",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no"
+}

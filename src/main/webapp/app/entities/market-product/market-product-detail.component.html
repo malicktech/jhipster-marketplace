@@ -1,0 +1,58 @@
+
+<div *ngIf="marketProduct">
+    <h2><span jhiTranslate="marketApp.marketProduct.detail.title">Market Product</span> {{marketProduct.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="marketApp.marketProduct.title">Title</span></dt>
+        <dd>
+            <span>{{marketProduct.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketProduct.description">Description</span></dt>
+        <dd>
+            <span>{{marketProduct.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketProduct.price">Price</span></dt>
+        <dd>
+            <span>{{marketProduct.price}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketProduct.category">Category</span></dt>
+        <dd>
+            <span>{{marketProduct.category}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketProduct.img">Img</span></dt>
+        <dd>
+            <div *ngIf="marketProduct.img">
+                <a (click)="openFile(marketProduct.imgContentType, marketProduct.img)">
+                    <img [src]="'data:' + marketProduct.imgContentType + ';base64,' + marketProduct.img" style="max-width: 100%;" alt="marketProduct image"/>
+                </a>
+                {{marketProduct.imgContentType}}, {{byteSize(marketProduct.img)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketProduct.marketOrderline">Market Orderline</span></dt>
+        <dd>
+            <div *ngIf="marketProduct.marketOrderlineId">
+                <a [routerLink]="['/market-orderline', marketProduct.marketOrderlineId]">{{marketProduct.marketOrderlineId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketProduct.category">Category</span></dt>
+        <dd>
+            <div *ngIf="marketProduct.categoryId">
+                <a [routerLink]="['/market-product-category', marketProduct.categoryId]">{{marketProduct.categoryId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'market-product/'+ marketProduct.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,29 @@
+{
+    "marketApp": {
+        "marketProduct" : {
+            "home": {
+                "title": "MarketProducts",
+                "createLabel": "Créer un nouveau Market Product",
+                "createOrEditLabel": "Créer ou éditer un Market Product",
+                "search": "Recherche pour Market Product"
+            },
+            "created": "Un nouveau Market Product a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Market Product avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Market Product avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Market Product {{ id }} ?"
+            },
+            "detail": {
+                "title": "Market Product"
+            },
+            "title": "Title",
+            "description": "Description",
+            "price": "Price",
+            "category": "Category",
+            "img": "Img",
+            "marketOrderline": "Market Orderline",
+            "attributes": "Attributes",
+            "category": "Category"
+        }
+    }
+}

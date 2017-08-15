@@ -1,0 +1,29 @@
+{
+    "marketApp": {
+        "marketProduct" : {
+            "home": {
+                "title": "Market Products",
+                "createLabel": "Create a new Market Product",
+                "createOrEditLabel": "Create or edit a Market Product",
+                "search": "Search for Market Product"
+            },
+            "created": "A new Market Product is created with identifier {{ param }}",
+            "updated": "A Market Product is updated with identifier {{ param }}",
+            "deleted": "A Market Product is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Market Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Market Product"
+            },
+            "title": "Title",
+            "description": "Description",
+            "price": "Price",
+            "category": "Category",
+            "img": "Img",
+            "marketOrderline": "Market Orderline",
+            "attributes": "Attributes",
+            "category": "Category"
+        }
+    }
+}

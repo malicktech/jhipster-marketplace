@@ -1,0 +1,111 @@
+<div>
+    <h2>
+        <span jhiTranslate="marketApp.marketOrders.home.title">Market Orders</span>
+        <button class="btn btn-primary float-right jh-create-entity create-market-orders" [routerLink]="['/', { outlets: { popup: ['market-orders-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="marketApp.marketOrders.home.createLabel">
+            Create new Market Orders
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'marketApp.marketOrders.home.search' | translate }}">
+                    <button class="input-group-addon btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="marketOrders">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="orderDate"><span jhiTranslate="marketApp.marketOrders.orderDate">Order Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="shipdate"><span jhiTranslate="marketApp.marketOrders.shipdate">Shipdate</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="totalPrice"><span jhiTranslate="marketApp.marketOrders.totalPrice">Total Price</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="discount"><span jhiTranslate="marketApp.marketOrders.discount">Discount</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="weight"><span jhiTranslate="marketApp.marketOrders.weight">Weight</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="trackingNumber"><span jhiTranslate="marketApp.marketOrders.trackingNumber">Tracking Number</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ordertatus"><span jhiTranslate="marketApp.marketOrders.ordertatus">Ordertatus</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="remoteVirtualCardId"><span jhiTranslate="marketApp.marketOrders.remoteVirtualCardId">Remote Virtual Card Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="marketOrderId"><span jhiTranslate="marketApp.marketOrders.marketOrderId">Market Order Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="paymentId"><span jhiTranslate="marketApp.marketOrders.payment">Payment</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="shipperId"><span jhiTranslate="marketApp.marketOrders.shipper">Shipper</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="customerId"><span jhiTranslate="marketApp.marketOrders.customer">Customer</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let marketOrders of marketOrders ;trackBy: trackId">
+                <td><a [routerLink]="['../market-orders', marketOrders.id ]">{{marketOrders.id}}</a></td>
+                <td>{{marketOrders.orderDate | date:'medium'}}</td>
+                <td>{{marketOrders.shipdate | date:'mediumDate'}}</td>
+                <td>{{marketOrders.totalPrice}}</td>
+                <td>{{marketOrders.discount}}</td>
+                <td>{{marketOrders.weight}}</td>
+                <td>{{marketOrders.trackingNumber}}</td>
+                <td jhiTranslate="{{'marketApp.OrderStatus.' + marketOrders.ordertatus}}">{{marketOrders.ordertatus}}</td>
+                <td>{{marketOrders.remoteVirtualCardId}}</td>
+                <td>{{marketOrders.marketOrderId}}</td>
+                <td>
+                    <div *ngIf="marketOrders.paymentId">
+                        <a [routerLink]="['../payment', marketOrders.paymentId  ]" >{{marketOrders.paymentId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="marketOrders.shipperId">
+                        <a [routerLink]="['../shipments', marketOrders.shipperId  ]" >{{marketOrders.shipperId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="marketOrders.customerId">
+                        <a [routerLink]="['../customer', marketOrders.customerId  ]" >{{marketOrders.customerId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../market-orders', marketOrders.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'market-orders/'+ marketOrders.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'market-orders/'+ marketOrders.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="marketOrders && marketOrders.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

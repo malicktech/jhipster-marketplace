@@ -1,0 +1,113 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMarketOrdersLabel" jhiTranslate="marketApp.marketOrders.home.createOrEditLabel">Create or edit a Market Orders</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!marketOrders.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="marketOrders.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="marketApp.marketOrders.orderDate" for="field_orderDate">Order Date</label>
+            <div class="d-flex">
+                <input id="field_orderDate" type="datetime-local" class="form-control" name="orderDate" [(ngModel)]="marketOrders.orderDate"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="marketApp.marketOrders.shipdate" for="field_shipdate">Shipdate</label>
+            <div class="input-group">
+                <input id="field_shipdate" type="text" class="form-control" name="shipdate" ngbDatepicker  #shipdateDp="ngbDatepicker" [(ngModel)]="marketOrders.shipdate"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="shipdateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.shipdate?.dirty && editForm.controls.shipdate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.shipdate?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="marketApp.marketOrders.totalPrice" for="field_totalPrice">Total Price</label>
+            <input type="number" class="form-control" name="totalPrice" id="field_totalPrice"
+                [(ngModel)]="marketOrders.totalPrice"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="marketApp.marketOrders.discount" for="field_discount">Discount</label>
+            <input type="text" class="form-control" name="discount" id="field_discount"
+                [(ngModel)]="marketOrders.discount"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="marketApp.marketOrders.weight" for="field_weight">Weight</label>
+            <input type="number" class="form-control" name="weight" id="field_weight"
+                [(ngModel)]="marketOrders.weight"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="marketApp.marketOrders.trackingNumber" for="field_trackingNumber">Tracking Number</label>
+            <input type="text" class="form-control" name="trackingNumber" id="field_trackingNumber"
+                [(ngModel)]="marketOrders.trackingNumber"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="marketApp.marketOrders.ordertatus" for="field_ordertatus">Ordertatus</label>
+            <select class="form-control" name="ordertatus" [(ngModel)]="marketOrders.ordertatus" id="field_ordertatus"  required>
+                <option value="PAID" jhiTranslate="marketApp.OrderStatus.PAID">PAID</option>
+                <option value="VALIDATED" jhiTranslate="marketApp.OrderStatus.VALIDATED">VALIDATED</option>
+                <option value="SHIPPED" jhiTranslate="marketApp.OrderStatus.SHIPPED">SHIPPED</option>
+            </select>
+            <div [hidden]="!(editForm.controls.ordertatus?.dirty && editForm.controls.ordertatus?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ordertatus?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="marketApp.marketOrders.remoteVirtualCardId" for="field_remoteVirtualCardId">Remote Virtual Card Id</label>
+            <input type="text" class="form-control" name="remoteVirtualCardId" id="field_remoteVirtualCardId"
+                [(ngModel)]="marketOrders.remoteVirtualCardId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="marketApp.marketOrders.marketOrderId" for="field_marketOrderId">Market Order Id</label>
+            <input type="text" class="form-control" name="marketOrderId" id="field_marketOrderId"
+                [(ngModel)]="marketOrders.marketOrderId"  />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="marketApp.marketOrders.payment" for="field_payment">Payment</label>
+            <select class="form-control" id="field_payment" name="payment" [(ngModel)]="marketOrders.paymentId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="paymentOption.id" *ngFor="let paymentOption of payments; trackBy: trackPaymentById">{{paymentOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="marketApp.marketOrders.shipper" for="field_shipper">Shipper</label>
+            <select class="form-control" id="field_shipper" name="shipper" [(ngModel)]="marketOrders.shipperId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="shipmentsOption.id" *ngFor="let shipmentsOption of shippers; trackBy: trackShipmentsById">{{shipmentsOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="marketApp.marketOrders.customer" for="field_customer">Customer</label>
+            <select class="form-control" id="field_customer" name="customer" [(ngModel)]="marketOrders.customerId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="customerOption.id" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

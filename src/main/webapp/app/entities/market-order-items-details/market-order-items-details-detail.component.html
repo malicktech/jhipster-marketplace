@@ -1,0 +1,35 @@
+
+<div *ngIf="marketOrderItemsDetails">
+    <h2><span jhiTranslate="marketApp.marketOrderItemsDetails.detail.title">Market Order Items Details</span> {{marketOrderItemsDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="marketApp.marketOrderItemsDetails.key">Key</span></dt>
+        <dd>
+            <span>{{marketOrderItemsDetails.key}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrderItemsDetails.value">Value</span></dt>
+        <dd>
+            <span>{{marketOrderItemsDetails.value}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrderItemsDetails.marketOrderline">Market Orderline</span></dt>
+        <dd>
+            <div *ngIf="marketOrderItemsDetails.marketOrderlineId">
+                <a [routerLink]="['/market-orderline', marketOrderItemsDetails.marketOrderlineId]">{{marketOrderItemsDetails.marketOrderlineId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'market-order-items-details/'+ marketOrderItemsDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

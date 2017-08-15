@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "order",
+            "otherEntityName": "marketOrders",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "payment"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "allowed",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "paymentType",
+            "fieldType": "PaymentType",
+            "fieldValues": "CREDITCARD,MOBILE,ONLINESYSTEM"
+        }
+    ],
+    "changelogDate": "20170815131223",
+    "entityTableName": "payment",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,23 @@
+{
+    "marketApp": {
+        "invoices" : {
+            "home": {
+                "title": "Invoices",
+                "createLabel": "Créer un nouveau Invoices",
+                "createOrEditLabel": "Créer ou éditer un Invoices",
+                "search": "Recherche pour Invoices"
+            },
+            "created": "Un nouveau Invoices a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Invoices avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Invoices avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Invoices {{ id }} ?"
+            },
+            "detail": {
+                "title": "Invoices"
+            },
+            "invoiceDate": "Invoice Date",
+            "invoiceDetails": "Invoice Details"
+        }
+    }
+}

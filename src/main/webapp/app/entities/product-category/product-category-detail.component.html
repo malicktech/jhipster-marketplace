@@ -1,0 +1,47 @@
+
+<div *ngIf="productCategory">
+    <h2><span jhiTranslate="marketApp.productCategory.detail.title">Product Category</span> {{productCategory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="marketApp.productCategory.key">Key</span></dt>
+        <dd>
+            <span>{{productCategory.key}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.productCategory.value">Value</span></dt>
+        <dd>
+            <span>{{productCategory.value}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.productCategory.activated">Activated</span></dt>
+        <dd>
+            <span>{{productCategory.activated}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.productCategory.defaultSortOrder">Default Sort Order</span></dt>
+        <dd>
+            <span>{{productCategory.defaultSortOrder}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.productCategory.status">Status</span></dt>
+        <dd>
+            <span jhiTranslate="{{'marketApp.CategoryStatus.' + productCategory.status}}">{{productCategory.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.productCategory.market">Market</span></dt>
+        <dd>
+            <div *ngIf="productCategory.marketId">
+                <a [routerLink]="['/market', productCategory.marketId]">{{productCategory.marketId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'product-category/'+ productCategory.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

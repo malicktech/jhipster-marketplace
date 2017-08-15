@@ -1,0 +1,25 @@
+{
+    "marketApp": {
+        "shipments" : {
+            "home": {
+                "title": "Shipments",
+                "createLabel": "Créer un nouveau Shipments",
+                "createOrEditLabel": "Créer ou éditer un Shipments",
+                "search": "Recherche pour Shipments"
+            },
+            "created": "Un nouveau Shipments a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Shipments avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Shipments avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Shipments {{ id }} ?"
+            },
+            "detail": {
+                "title": "Shipments"
+            },
+            "shipperType": "Shipper Type",
+            "companyName": "Company Name",
+            "phone": "Phone",
+            "order": "Order"
+        }
+    }
+}

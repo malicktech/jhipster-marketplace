@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "marketOrders",
+            "otherEntityName": "marketOrders",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "details",
+            "otherEntityName": "marketOrderItemsDetails",
+            "otherEntityRelationshipName": "marketOrderline"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "details",
+            "otherEntityName": "marketProduct",
+            "otherEntityRelationshipName": "marketOrderline"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "quantity",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170815131224",
+    "javadoc": "MarketOrderItems = MarketOrderline\ncross-reference table Order-Line,\nholds information on each product ordered on one order with quantity fiedl\nsince customer can purchase multiple items on the same order",
+    "entityTableName": "market_orderline",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "no"
+}

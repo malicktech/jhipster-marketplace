@@ -1,0 +1,23 @@
+{
+    "marketApp": {
+        "invoices" : {
+            "home": {
+                "title": "Invoices",
+                "createLabel": "Create a new Invoices",
+                "createOrEditLabel": "Create or edit a Invoices",
+                "search": "Search for Invoices"
+            },
+            "created": "A new Invoices is created with identifier {{ param }}",
+            "updated": "A Invoices is updated with identifier {{ param }}",
+            "deleted": "A Invoices is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Invoices {{ id }}?"
+            },
+            "detail": {
+                "title": "Invoices"
+            },
+            "invoiceDate": "Invoice Date",
+            "invoiceDetails": "Invoice Details"
+        }
+    }
+}

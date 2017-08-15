@@ -1,0 +1,35 @@
+
+<div *ngIf="marketProductAttributes">
+    <h2><span jhiTranslate="marketApp.marketProductAttributes.detail.title">Market Product Attributes</span> {{marketProductAttributes.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="marketApp.marketProductAttributes.key">Key</span></dt>
+        <dd>
+            <span>{{marketProductAttributes.key}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketProductAttributes.value">Value</span></dt>
+        <dd>
+            <span>{{marketProductAttributes.value}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketProductAttributes.marketProduct">Market Product</span></dt>
+        <dd>
+            <div *ngIf="marketProductAttributes.marketProductId">
+                <a [routerLink]="['/market-product', marketProductAttributes.marketProductId]">{{marketProductAttributes.marketProductId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'market-product-attributes/'+ marketProductAttributes.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

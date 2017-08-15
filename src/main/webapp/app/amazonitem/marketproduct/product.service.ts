@@ -9,7 +9,7 @@ import { Product } from './product-model';
 @Injectable()
 export class ProductService {
 
-    private apiUrl = 'http://localhost:8080/api';  // URL to web api
+    private apiUrl = 'http://localhost:8888/api';  // URL to web api
 
     // private headers;
     private headers = new Headers({ 'Content-Type': 'application/json' });

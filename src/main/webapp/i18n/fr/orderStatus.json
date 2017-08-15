@@ -1,0 +1,10 @@
+{
+    "marketApp": {
+        "OrderStatus" : {
+            "null": "",
+            "PAID": "PAID",
+            "VALIDATED": "VALIDATED",
+            "SHIPPED": "SHIPPED"
+        }
+    }
+}

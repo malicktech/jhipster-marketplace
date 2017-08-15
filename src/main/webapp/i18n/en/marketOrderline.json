@@ -1,0 +1,25 @@
+{
+    "marketApp": {
+        "marketOrderline" : {
+            "home": {
+                "title": "Market Orderlines",
+                "createLabel": "Create a new Market Orderline",
+                "createOrEditLabel": "Create or edit a Market Orderline",
+                "search": "Search for Market Orderline"
+            },
+            "created": "A new Market Orderline is created with identifier {{ param }}",
+            "updated": "A Market Orderline is updated with identifier {{ param }}",
+            "deleted": "A Market Orderline is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Market Orderline {{ id }}?"
+            },
+            "detail": {
+                "title": "Market Orderline"
+            },
+            "quantity": "Quantity",
+            "marketOrders": "Market Orders",
+            "details": "Details",
+            "details": "Details"
+        }
+    }
+}

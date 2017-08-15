@@ -1,0 +1,10 @@
+{
+    "marketApp": {
+        "PaymentType" : {
+            "null": "",
+            "CREDITCARD": "CREDITCARD",
+            "MOBILE": "MOBILE",
+            "ONLINESYSTEM": "ONLINESYSTEM"
+        }
+    }
+}

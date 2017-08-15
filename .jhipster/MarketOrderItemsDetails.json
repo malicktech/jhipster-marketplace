@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "marketOrderline",
+            "otherEntityName": "marketOrderline",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "key",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170815131225",
+    "entityTableName": "market_order_items_details",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no"
+}

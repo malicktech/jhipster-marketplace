@@ -1,0 +1,24 @@
+{
+    "marketApp": {
+        "marketProductAttributes" : {
+            "home": {
+                "title": "MarketProductAttributes",
+                "createLabel": "Créer un nouveau Market Product Attributes",
+                "createOrEditLabel": "Créer ou éditer un Market Product Attributes",
+                "search": "Recherche pour Market Product Attributes"
+            },
+            "created": "Un nouveau Market Product Attributes a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Market Product Attributes avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Market Product Attributes avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Market Product Attributes {{ id }} ?"
+            },
+            "detail": {
+                "title": "Market Product Attributes"
+            },
+            "key": "Key",
+            "value": "Value",
+            "marketProduct": "Market Product"
+        }
+    }
+}

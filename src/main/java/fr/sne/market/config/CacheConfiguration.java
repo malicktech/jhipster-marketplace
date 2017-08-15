@@ -41,6 +41,30 @@ public class CacheConfiguration {
             cm.createCache(fr.sne.market.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(fr.sne.market.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(fr.sne.market.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Operator.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Customer.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Customer.class.getName() + ".addresses", jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Customer.class.getName() + ".orders", jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.CustomerAddress.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Region.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Country.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Market.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Market.class.getName() + ".infos", jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Market.class.getName() + ".categories", jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.ProductCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.MarketInfo.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.MarketOrders.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.MarketOrders.class.getName() + ".quantities", jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Shipments.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Invoices.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.Payment.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.MarketOrderline.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.MarketOrderline.class.getName() + ".details", jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.MarketOrderItemsDetails.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.MarketProduct.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.MarketProduct.class.getName() + ".attributes", jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.MarketProductCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(fr.sne.market.domain.MarketProductAttributes.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

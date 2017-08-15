@@ -1,0 +1,75 @@
+
+<div *ngIf="marketOrders">
+    <h2><span jhiTranslate="marketApp.marketOrders.detail.title">Market Orders</span> {{marketOrders.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="marketApp.marketOrders.orderDate">Order Date</span></dt>
+        <dd>
+            <span>{{marketOrders.orderDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrders.shipdate">Shipdate</span></dt>
+        <dd>
+            <span>{{marketOrders.shipdate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrders.totalPrice">Total Price</span></dt>
+        <dd>
+            <span>{{marketOrders.totalPrice}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrders.discount">Discount</span></dt>
+        <dd>
+            <span>{{marketOrders.discount}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrders.weight">Weight</span></dt>
+        <dd>
+            <span>{{marketOrders.weight}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrders.trackingNumber">Tracking Number</span></dt>
+        <dd>
+            <span>{{marketOrders.trackingNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrders.ordertatus">Ordertatus</span></dt>
+        <dd>
+            <span jhiTranslate="{{'marketApp.OrderStatus.' + marketOrders.ordertatus}}">{{marketOrders.ordertatus}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrders.remoteVirtualCardId">Remote Virtual Card Id</span></dt>
+        <dd>
+            <span>{{marketOrders.remoteVirtualCardId}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrders.marketOrderId">Market Order Id</span></dt>
+        <dd>
+            <span>{{marketOrders.marketOrderId}}</span>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrders.payment">Payment</span></dt>
+        <dd>
+            <div *ngIf="marketOrders.paymentId">
+                <a [routerLink]="['/payment', marketOrders.paymentId]">{{marketOrders.paymentId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrders.shipper">Shipper</span></dt>
+        <dd>
+            <div *ngIf="marketOrders.shipperId">
+                <a [routerLink]="['/shipments', marketOrders.shipperId]">{{marketOrders.shipperId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="marketApp.marketOrders.customer">Customer</span></dt>
+        <dd>
+            <div *ngIf="marketOrders.customerId">
+                <a [routerLink]="['/customer', marketOrders.customerId]">{{marketOrders.customerId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'market-orders/'+ marketOrders.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

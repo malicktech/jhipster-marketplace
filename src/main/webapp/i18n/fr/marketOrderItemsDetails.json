@@ -1,0 +1,24 @@
+{
+    "marketApp": {
+        "marketOrderItemsDetails" : {
+            "home": {
+                "title": "MarketOrderItemsDetails",
+                "createLabel": "Créer un nouveau Market Order Items Details",
+                "createOrEditLabel": "Créer ou éditer un Market Order Items Details",
+                "search": "Recherche pour Market Order Items Details"
+            },
+            "created": "Un nouveau Market Order Items Details a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Market Order Items Details avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Market Order Items Details avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Market Order Items Details {{ id }} ?"
+            },
+            "detail": {
+                "title": "Market Order Items Details"
+            },
+            "key": "Key",
+            "value": "Value",
+            "marketOrderline": "Market Orderline"
+        }
+    }
+}

@@ -1,0 +1,84 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "payment",
+            "otherEntityName": "payment",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "order"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "shipper",
+            "otherEntityName": "shipments",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "order"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "quantity",
+            "otherEntityName": "marketOrderline",
+            "otherEntityRelationshipName": "marketOrders"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "orderDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "shipdate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "totalPrice",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "discount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "trackingNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ordertatus",
+            "fieldType": "OrderStatus",
+            "fieldValues": "PAID,VALIDATED,SHIPPED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "remoteVirtualCardId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "marketOrderId",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170815131220",
+    "javadoc": "Order entity\n\nAn order can contain many items, and an MarketProduct can appear in many different orders\nEach Order is associated with one or more OrderLines.\nEach OrderLine is associated with one and only one Order.\nEach OrderLine is associated with one and only one Product.\nEach Product is associated with zero or more OrderLines.",
+    "entityTableName": "market_orders",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "no"
+}
