@@ -40,19 +40,12 @@ public class MarketProduct implements Serializable {
     @Column(name = "price", precision=10, scale=2)
     private BigDecimal price;
 
-    @NotNull
-    @Column(name = "category", nullable = false)
-    private String category;
-
     @Lob
     @Column(name = "img")
     private byte[] img;
 
     @Column(name = "img_content_type")
     private String imgContentType;
-
-    @ManyToOne
-    private MarketOrderline marketOrderline;
 
     @OneToMany(mappedBy = "marketProduct")
     @JsonIgnore
@@ -109,19 +102,6 @@ public class MarketProduct implements Serializable {
         this.price = price;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public MarketProduct category(String category) {
-        this.category = category;
-        return this;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public byte[] getImg() {
         return img;
     }
@@ -146,19 +126,6 @@ public class MarketProduct implements Serializable {
 
     public void setImgContentType(String imgContentType) {
         this.imgContentType = imgContentType;
-    }
-
-    public MarketOrderline getMarketOrderline() {
-        return marketOrderline;
-    }
-
-    public MarketProduct marketOrderline(MarketOrderline marketOrderline) {
-        this.marketOrderline = marketOrderline;
-        return this;
-    }
-
-    public void setMarketOrderline(MarketOrderline marketOrderline) {
-        this.marketOrderline = marketOrderline;
     }
 
     public Set<MarketProductAttributes> getAttributes() {
@@ -226,7 +193,6 @@ public class MarketProduct implements Serializable {
             ", title='" + getTitle() + "'" +
             ", description='" + getDescription() + "'" +
             ", price='" + getPrice() + "'" +
-            ", category='" + getCategory() + "'" +
             ", img='" + getImg() + "'" +
             ", imgContentType='" + imgContentType + "'" +
             "}";

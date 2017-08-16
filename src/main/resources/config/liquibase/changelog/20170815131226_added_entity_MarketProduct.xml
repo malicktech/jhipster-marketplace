@@ -34,18 +34,10 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="category" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-
             <column name="img" type="longblob">
                 <constraints nullable="true" />
             </column>
             <column name="img_content_type" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="market_orderline_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

@@ -68,7 +68,7 @@ class MarketProductGatlingTest extends Simulation {
             .exec(http("Create new marketProduct")
             .post("/api/market-products")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "title":"SAMPLE_TEXT", "description":"SAMPLE_TEXT", "price":"0", "category":"SAMPLE_TEXT", "img":null}""")).asJSON
+            .body(StringBody("""{"id":null, "title":"SAMPLE_TEXT", "description":"SAMPLE_TEXT", "price":"0", "img":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_marketProduct_url"))).exitHereIfFailed
             .pause(10)

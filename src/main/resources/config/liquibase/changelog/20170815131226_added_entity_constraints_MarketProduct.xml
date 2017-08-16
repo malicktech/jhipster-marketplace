@@ -8,12 +8,6 @@
     -->
     <changeSet id="20170815131226-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="market_orderline_id"
-                                 baseTableName="market_product"
-                                 constraintName="fk_market_product_market_orderline_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="market_orderline"/>
-
         <addForeignKeyConstraint baseColumnNames="category_id"
                                  baseTableName="market_product"
                                  constraintName="fk_market_product_category_id"

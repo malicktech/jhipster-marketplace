@@ -23,14 +23,9 @@ public class MarketProductDTO implements Serializable {
 
     private BigDecimal price;
 
-    @NotNull
-    private String category;
-
     @Lob
     private byte[] img;
     private String imgContentType;
-
-    private Long marketOrderlineId;
 
     private Long categoryId;
 
@@ -66,14 +61,6 @@ public class MarketProductDTO implements Serializable {
         this.price = price;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public byte[] getImg() {
         return img;
     }
@@ -88,14 +75,6 @@ public class MarketProductDTO implements Serializable {
 
     public void setImgContentType(String imgContentType) {
         this.imgContentType = imgContentType;
-    }
-
-    public Long getMarketOrderlineId() {
-        return marketOrderlineId;
-    }
-
-    public void setMarketOrderlineId(Long marketOrderlineId) {
-        this.marketOrderlineId = marketOrderlineId;
     }
 
     public Long getCategoryId() {
@@ -134,7 +113,6 @@ public class MarketProductDTO implements Serializable {
             ", title='" + getTitle() + "'" +
             ", description='" + getDescription() + "'" +
             ", price='" + getPrice() + "'" +
-            ", category='" + getCategory() + "'" +
             ", img='" + getImg() + "'" +
             "}";
     }

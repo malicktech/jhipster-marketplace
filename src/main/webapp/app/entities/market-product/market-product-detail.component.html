@@ -16,10 +16,6 @@
         <dd>
             <span>{{marketProduct.price}}</span>
         </dd>
-        <dt><span jhiTranslate="marketApp.marketProduct.category">Category</span></dt>
-        <dd>
-            <span>{{marketProduct.category}}</span>
-        </dd>
         <dt><span jhiTranslate="marketApp.marketProduct.img">Img</span></dt>
         <dd>
             <div *ngIf="marketProduct.img">
@@ -27,12 +23,6 @@
                     <img [src]="'data:' + marketProduct.imgContentType + ';base64,' + marketProduct.img" style="max-width: 100%;" alt="marketProduct image"/>
                 </a>
                 {{marketProduct.imgContentType}}, {{byteSize(marketProduct.img)}}
-            </div>
-        </dd>
-        <dt><span jhiTranslate="marketApp.marketProduct.marketOrderline">Market Orderline</span></dt>
-        <dd>
-            <div *ngIf="marketProduct.marketOrderlineId">
-                <a [routerLink]="['/market-orderline', marketProduct.marketOrderlineId]">{{marketProduct.marketOrderlineId}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="marketApp.marketProduct.category">Category</span></dt>

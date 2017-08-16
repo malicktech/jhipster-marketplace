@@ -6,10 +6,8 @@ export class MarketProduct implements BaseEntity {
         public title?: string,
         public description?: string,
         public price?: number,
-        public category?: string,
         public imgContentType?: string,
         public img?: any,
-        public marketOrderlineId?: number,
         public attributes?: BaseEntity[],
         public categoryId?: number,
     ) {

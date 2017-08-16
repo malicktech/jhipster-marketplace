@@ -2,12 +2,6 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipName": "marketOrderline",
-            "otherEntityName": "marketOrderline",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
             "relationshipType": "one-to-many",
             "relationshipName": "attributes",
             "otherEntityName": "marketProductAttributes",
@@ -35,13 +29,6 @@
         {
             "fieldName": "price",
             "fieldType": "BigDecimal"
-        },
-        {
-            "fieldName": "category",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
         },
         {
             "fieldName": "img",

@@ -8,15 +8,17 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-many",
-            "relationshipName": "details",
-            "otherEntityName": "marketOrderItemsDetails",
+            "relationshipType": "one-to-one",
+            "relationshipName": "product",
+            "otherEntityName": "marketProduct",
+            "otherEntityField": "id",
+            "ownerSide": true,
             "otherEntityRelationshipName": "marketOrderline"
         },
         {
             "relationshipType": "one-to-many",
             "relationshipName": "details",
-            "otherEntityName": "marketProduct",
+            "otherEntityName": "marketOrderItemsDetails",
             "otherEntityRelationshipName": "marketOrderline"
         }
     ],

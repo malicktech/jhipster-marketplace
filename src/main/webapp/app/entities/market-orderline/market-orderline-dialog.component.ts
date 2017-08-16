@@ -10,6 +10,7 @@ import { MarketOrderline } from './market-orderline.model';
 import { MarketOrderlinePopupService } from './market-orderline-popup.service';
 import { MarketOrderlineService } from './market-orderline.service';
 import { MarketOrders, MarketOrdersService } from '../market-orders';
+import { MarketProduct, MarketProductService } from '../market-product';
 import { ResponseWrapper } from '../../shared';
 
 @Component({
@@ -23,11 +24,14 @@ export class MarketOrderlineDialogComponent implements OnInit {
 
     marketorders: MarketOrders[];
 
+    products: MarketProduct[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private marketOrderlineService: MarketOrderlineService,
         private marketOrdersService: MarketOrdersService,
+        private marketProductService: MarketProductService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -36,6 +40,19 @@ export class MarketOrderlineDialogComponent implements OnInit {
         this.isSaving = false;
         this.marketOrdersService.query()
             .subscribe((res: ResponseWrapper) => { this.marketorders = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.marketProductService
+            .query({filter: 'marketorderline-is-null'})
+            .subscribe((res: ResponseWrapper) => {
+                if (!this.marketOrderline.productId) {
+                    this.products = res.json;
+                } else {
+                    this.marketProductService
+                        .find(this.marketOrderline.productId)
+                        .subscribe((subRes: MarketProduct) => {
+                            this.products = [subRes].concat(res.json);
+                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
+                }
+            }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -79,6 +96,10 @@ export class MarketOrderlineDialogComponent implements OnInit {
     }
 
     trackMarketOrdersById(index: number, item: MarketOrders) {
+        return item.id;
+    }
+
+    trackMarketProductById(index: number, item: MarketProduct) {
         return item.id;
     }
 }

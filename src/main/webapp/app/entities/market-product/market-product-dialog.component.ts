@@ -9,7 +9,6 @@ import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 import { MarketProduct } from './market-product.model';
 import { MarketProductPopupService } from './market-product-popup.service';
 import { MarketProductService } from './market-product.service';
-import { MarketOrderline, MarketOrderlineService } from '../market-orderline';
 import { MarketProductCategory, MarketProductCategoryService } from '../market-product-category';
 import { ResponseWrapper } from '../../shared';
 
@@ -22,8 +21,6 @@ export class MarketProductDialogComponent implements OnInit {
     marketProduct: MarketProduct;
     isSaving: boolean;
 
-    marketorderlines: MarketOrderline[];
-
     marketproductcategories: MarketProductCategory[];
 
     constructor(
@@ -31,7 +28,6 @@ export class MarketProductDialogComponent implements OnInit {
         private dataUtils: JhiDataUtils,
         private alertService: JhiAlertService,
         private marketProductService: MarketProductService,
-        private marketOrderlineService: MarketOrderlineService,
         private marketProductCategoryService: MarketProductCategoryService,
         private elementRef: ElementRef,
         private eventManager: JhiEventManager
@@ -40,8 +36,6 @@ export class MarketProductDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.marketOrderlineService.query()
-            .subscribe((res: ResponseWrapper) => { this.marketorderlines = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.marketProductCategoryService.query()
             .subscribe((res: ResponseWrapper) => { this.marketproductcategories = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
@@ -109,10 +103,6 @@ export class MarketProductDialogComponent implements OnInit {
 
     private onError(error) {
         this.alertService.error(error.message, null, null);
-    }
-
-    trackMarketOrderlineById(index: number, item: MarketOrderline) {
-        return item.id;
     }
 
     trackMarketProductCategoryById(index: number, item: MarketProductCategory) {

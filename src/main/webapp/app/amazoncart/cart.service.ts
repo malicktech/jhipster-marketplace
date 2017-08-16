@@ -8,7 +8,7 @@ import { Cart } from './cart.model';
 @Injectable()
 export class CartService {
 
-    private apiUrl = 'http://localhost:8888/api';
+    private apiUrl = 'api';
 
     private headers = new Headers({ 'Content-Type': 'application/json' });
 

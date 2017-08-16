@@ -14,6 +14,12 @@
                 <a [routerLink]="['/market-orders', marketOrderline.marketOrdersId]">{{marketOrderline.marketOrdersId}}</a>
             </div>
         </dd>
+        <dt><span jhiTranslate="marketApp.marketOrderline.product">Product</span></dt>
+        <dd>
+            <div *ngIf="marketOrderline.productId">
+                <a [routerLink]="['/market-product', marketOrderline.productId]">{{marketOrderline.productId}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

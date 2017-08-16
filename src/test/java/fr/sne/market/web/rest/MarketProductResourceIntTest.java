@@ -51,9 +51,6 @@ public class MarketProductResourceIntTest {
     private static final BigDecimal DEFAULT_PRICE = new BigDecimal(1);
     private static final BigDecimal UPDATED_PRICE = new BigDecimal(2);
 
-    private static final String DEFAULT_CATEGORY = "AAAAAAAAAA";
-    private static final String UPDATED_CATEGORY = "BBBBBBBBBB";
-
     private static final byte[] DEFAULT_IMG = TestUtil.createByteArray(1, "0");
     private static final byte[] UPDATED_IMG = TestUtil.createByteArray(2, "1");
     private static final String DEFAULT_IMG_CONTENT_TYPE = "image/jpg";
@@ -105,7 +102,6 @@ public class MarketProductResourceIntTest {
             .title(DEFAULT_TITLE)
             .description(DEFAULT_DESCRIPTION)
             .price(DEFAULT_PRICE)
-            .category(DEFAULT_CATEGORY)
             .img(DEFAULT_IMG)
             .imgContentType(DEFAULT_IMG_CONTENT_TYPE);
         return marketProduct;
@@ -136,7 +132,6 @@ public class MarketProductResourceIntTest {
         assertThat(testMarketProduct.getTitle()).isEqualTo(DEFAULT_TITLE);
         assertThat(testMarketProduct.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testMarketProduct.getPrice()).isEqualTo(DEFAULT_PRICE);
-        assertThat(testMarketProduct.getCategory()).isEqualTo(DEFAULT_CATEGORY);
         assertThat(testMarketProduct.getImg()).isEqualTo(DEFAULT_IMG);
         assertThat(testMarketProduct.getImgContentType()).isEqualTo(DEFAULT_IMG_CONTENT_TYPE);
 
@@ -186,25 +181,6 @@ public class MarketProductResourceIntTest {
 
     @Test
     @Transactional
-    public void checkCategoryIsRequired() throws Exception {
-        int databaseSizeBeforeTest = marketProductRepository.findAll().size();
-        // set the field null
-        marketProduct.setCategory(null);
-
-        // Create the MarketProduct, which fails.
-        MarketProductDTO marketProductDTO = marketProductMapper.toDto(marketProduct);
-
-        restMarketProductMockMvc.perform(post("/api/market-products")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(marketProductDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<MarketProduct> marketProductList = marketProductRepository.findAll();
-        assertThat(marketProductList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllMarketProducts() throws Exception {
         // Initialize the database
         marketProductRepository.saveAndFlush(marketProduct);
@@ -217,7 +193,6 @@ public class MarketProductResourceIntTest {
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.intValue())))
-            .andExpect(jsonPath("$.[*].category").value(hasItem(DEFAULT_CATEGORY.toString())))
             .andExpect(jsonPath("$.[*].imgContentType").value(hasItem(DEFAULT_IMG_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].img").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMG))));
     }
@@ -236,7 +211,6 @@ public class MarketProductResourceIntTest {
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.intValue()))
-            .andExpect(jsonPath("$.category").value(DEFAULT_CATEGORY.toString()))
             .andExpect(jsonPath("$.imgContentType").value(DEFAULT_IMG_CONTENT_TYPE))
             .andExpect(jsonPath("$.img").value(Base64Utils.encodeToString(DEFAULT_IMG)));
     }
@@ -263,7 +237,6 @@ public class MarketProductResourceIntTest {
             .title(UPDATED_TITLE)
             .description(UPDATED_DESCRIPTION)
             .price(UPDATED_PRICE)
-            .category(UPDATED_CATEGORY)
             .img(UPDATED_IMG)
             .imgContentType(UPDATED_IMG_CONTENT_TYPE);
         MarketProductDTO marketProductDTO = marketProductMapper.toDto(updatedMarketProduct);
@@ -280,7 +253,6 @@ public class MarketProductResourceIntTest {
         assertThat(testMarketProduct.getTitle()).isEqualTo(UPDATED_TITLE);
         assertThat(testMarketProduct.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testMarketProduct.getPrice()).isEqualTo(UPDATED_PRICE);
-        assertThat(testMarketProduct.getCategory()).isEqualTo(UPDATED_CATEGORY);
         assertThat(testMarketProduct.getImg()).isEqualTo(UPDATED_IMG);
         assertThat(testMarketProduct.getImgContentType()).isEqualTo(UPDATED_IMG_CONTENT_TYPE);
 
@@ -345,7 +317,6 @@ public class MarketProductResourceIntTest {
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.intValue())))
-            .andExpect(jsonPath("$.[*].category").value(hasItem(DEFAULT_CATEGORY.toString())))
             .andExpect(jsonPath("$.[*].imgContentType").value(hasItem(DEFAULT_IMG_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].img").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMG))));
     }

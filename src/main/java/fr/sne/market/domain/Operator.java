@@ -41,7 +41,6 @@ public class Operator implements Serializable {
     private ZonedDateTime hireDate;
 
     @OneToOne
-    @JoinColumn(unique = true)
     private User user;
 
     public Long getId() {

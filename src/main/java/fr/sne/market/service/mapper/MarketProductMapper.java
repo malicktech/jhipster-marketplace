@@ -8,15 +8,11 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity MarketProduct and its DTO MarketProductDTO.
  */
-@Mapper(componentModel = "spring", uses = {MarketOrderlineMapper.class, MarketProductCategoryMapper.class, })
+@Mapper(componentModel = "spring", uses = {MarketProductCategoryMapper.class, })
 public interface MarketProductMapper extends EntityMapper <MarketProductDTO, MarketProduct> {
-
-    @Mapping(source = "marketOrderline.id", target = "marketOrderlineId")
 
     @Mapping(source = "category.id", target = "categoryId")
     MarketProductDTO toDto(MarketProduct marketProduct); 
-
-    @Mapping(source = "marketOrderlineId", target = "marketOrderline")
     @Mapping(target = "attributes", ignore = true)
 
     @Mapping(source = "categoryId", target = "category")

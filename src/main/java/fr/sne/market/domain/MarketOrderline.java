@@ -37,15 +37,14 @@ public class MarketOrderline implements Serializable {
     @ManyToOne
     private MarketOrders marketOrders;
 
-    @OneToMany(mappedBy = "marketOrderline")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<MarketOrderItemsDetails> details = new HashSet<>();
+    @OneToOne
+    @JoinColumn(unique = true)
+    private MarketProduct product;
 
     @OneToMany(mappedBy = "marketOrderline")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<MarketProduct> details = new HashSet<>();
+    private Set<MarketOrderItemsDetails> details = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -81,6 +80,19 @@ public class MarketOrderline implements Serializable {
         this.marketOrders = marketOrders;
     }
 
+    public MarketProduct getProduct() {
+        return product;
+    }
+
+    public MarketOrderline product(MarketProduct marketProduct) {
+        this.product = marketProduct;
+        return this;
+    }
+
+    public void setProduct(MarketProduct marketProduct) {
+        this.product = marketProduct;
+    }
+
     public Set<MarketOrderItemsDetails> getDetails() {
         return details;
     }
@@ -104,31 +116,6 @@ public class MarketOrderline implements Serializable {
 
     public void setDetails(Set<MarketOrderItemsDetails> marketOrderItemsDetails) {
         this.details = marketOrderItemsDetails;
-    }
-
-    public Set<MarketProduct> getDetails() {
-        return details;
-    }
-
-    public MarketOrderline details(Set<MarketProduct> marketProducts) {
-        this.details = marketProducts;
-        return this;
-    }
-
-    public MarketOrderline addDetails(MarketProduct marketProduct) {
-        this.details.add(marketProduct);
-        marketProduct.setMarketOrderline(this);
-        return this;
-    }
-
-    public MarketOrderline removeDetails(MarketProduct marketProduct) {
-        this.details.remove(marketProduct);
-        marketProduct.setMarketOrderline(null);
-        return this;
-    }
-
-    public void setDetails(Set<MarketProduct> marketProducts) {
-        this.details = marketProducts;
     }
 
     @Override

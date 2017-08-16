@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="market_orders"/>
 
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="market_orderline"
+                                 constraintName="fk_market_orderline_product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="market_product"/>
+
     </changeSet>
 </databaseChangeLog>

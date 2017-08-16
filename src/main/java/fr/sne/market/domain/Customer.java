@@ -46,7 +46,6 @@ public class Customer implements Serializable {
     private LocalDate dateOfBirth;
 
     @OneToOne
-    @JoinColumn(unique = true)
     private User user;
 
     @OneToMany(mappedBy = "customer")

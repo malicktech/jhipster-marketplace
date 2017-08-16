@@ -17,6 +17,8 @@ public class MarketOrderlineDTO implements Serializable {
 
     private Long marketOrdersId;
 
+    private Long productId;
+
     public Long getId() {
         return id;
     }
@@ -39,6 +41,14 @@ public class MarketOrderlineDTO implements Serializable {
 
     public void setMarketOrdersId(Long marketOrdersId) {
         this.marketOrdersId = marketOrdersId;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long marketProductId) {
+        this.productId = marketProductId;
     }
 
     @Override

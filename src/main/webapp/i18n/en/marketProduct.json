@@ -19,9 +19,7 @@
             "title": "Title",
             "description": "Description",
             "price": "Price",
-            "category": "Category",
             "img": "Img",
-            "marketOrderline": "Market Orderline",
             "attributes": "Attributes",
             "category": "Category"
         }

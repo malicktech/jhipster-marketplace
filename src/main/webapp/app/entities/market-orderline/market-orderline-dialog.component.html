@@ -25,6 +25,13 @@
                 <option [ngValue]="marketOrdersOption.id" *ngFor="let marketOrdersOption of marketorders; trackBy: trackMarketOrdersById">{{marketOrdersOption.id}}</option>
             </select>
         </div>
+        <div class="form-group">
+            <label jhiTranslate="marketApp.marketOrderline.product" for="field_product">Product</label>
+            <select class="form-control" id="field_product" name="product" [(ngModel)]="marketOrderline.productId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="marketProductOption.id" *ngFor="let marketProductOption of products; trackBy: trackMarketProductById">{{marketProductOption.id}}</option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
