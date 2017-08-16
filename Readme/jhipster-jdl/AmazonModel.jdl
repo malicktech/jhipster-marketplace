@@ -1,0 +1,27 @@
+entity MarketItem {
+	asin String
+}
+
+entity MarketItemAttributes {
+title String
+label String
+isbn String
+ean String
+brand String
+sku String
+size String
+productGroup String
+model String
+manufacturer String
+}
+
+relationship OneToOne {
+	MarketItem{itemAttributes} to MarketItemAttributes
+}
+
+paginate * with pagination except MarketItem, MarketItemAttributes
+
+dto * with mapstruct
+
+
+// yo jhipster:import-jdl src/main/JdlModel/AmazonModel.jdl

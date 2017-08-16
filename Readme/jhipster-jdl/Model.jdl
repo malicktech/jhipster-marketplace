@@ -141,7 +141,7 @@ entity MarketProduct {
 	title String required
     description String
 	price BigDecimal
-	category String required
+	// category String required
 	img ImageBlob
 }
 entity MarketProductCategory {
@@ -190,8 +190,8 @@ relationship OneToOne {
 relationship OneToMany {
 	MarketOrderline{details} to MarketOrderItemsDetails
 }
-relationship OneToMany {
-	MarketOrderline{details} to MarketProduct
+relationship OneToOne {
+	MarketOrderline{product} to MarketProduct
 }
 relationship ManyToOne {
 	MarketProduct{category} to MarketProductCategory
