@@ -18,6 +18,10 @@ You will only need to run this command when dependencies change in [package.json
 
 We use yarn scripts and [Webpack][] as our build system.
 
+Create databse 
+CREATE USER 'marketusr'@'localhost' IDENTIFIED BY 'marketpwd';
+GRANT ALL PRIVILEGES ON `market\_dev`.* TO 'marketusr'@'%' WITH GRANT OPTION; 
+
 
 Run the following commands in two separate terminals to create a blissful development experience where your browser
 auto-refreshes when files change on your hard drive.
