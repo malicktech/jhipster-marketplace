@@ -2175,7 +2175,7 @@ public class ItemAttributes
      *     {@link String }
      *     
      */
-    public String getSKU() {
+    public String getSku() {
         return sku;
     }
 
@@ -2187,7 +2187,7 @@ public class ItemAttributes
      *     {@link String }
      *     
      */
-    public void setSKU(String value) {
+    public void setSku(String value) {
         this.sku = value;
     }
 

@@ -128,6 +128,46 @@ public class AmazonMarketService {
 			return e.getMessage();
 		}
 	}
+	/**
+	 * NOde ItemSearch
+	 * returns up to 10 search results per page
+	 */
+	public String itemNodeSearch(String browsenode, String searchindex, String itemPage) {
+		
+		SignedRequestsHelper helper;
+		
+		try {
+			helper = SignedRequestsHelper.getInstance("webservices.amazon.fr", "AKIAJ5XZFNFFPAGZEDFQ",
+					"SA8O6zNW9JvhdEsKdvECeUmAPwywo+EqcVBMYr6D");
+			String requestUrl = null;
+
+			Map<String, String> params = new HashMap<String, String>();
+			params.put("Service", "AWSECommerceService");
+			params.put("Operation", "ItemSearch");
+			params.put("AWSAccessKeyId", "AKIAJ5XZFNFFPAGZEDFQ");
+			params.put("AssociateTag", "daktic-21");
+			
+			params.put("SearchIndex", searchindex);			
+			params.put("MerchantId", "Amazon");			
+	        params.put("Condition", "New");		
+	        params.put("ResponseGroup", "Images, ItemAttributes, OfferFull, EditorialReview");		
+			params.put("BrowseNode", browsenode);			
+			params.put("Availability", "Available");		
+			params.put("ItemPage", itemPage);
+
+			
+			if (searchindex.equalsIgnoreCase("Books")) {			
+				params.put("Sort", "titlerank");
+			}
+			
+			requestUrl = helper.sign(params);
+			return requestUrl;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return e.getMessage();
+		}
+	}
 	
 	/**
 	 * ItemLookup returns Product Details
@@ -158,7 +198,7 @@ public class AmazonMarketService {
         
         // The type of product data you want returned
         // params.put("ResponseGroup", "EditorialReview,Large,OfferFull,Offers,OfferSummary,Reviews,SalesRank");
-        params.put("ResponseGroup", "Images, ItemAttributes, Offers");
+        params.put("ResponseGroup", "Images, ItemAttributes, OfferFull, EditorialReview, PromotionSummary");
         // params.put("ResponseGroup", "Large");
         
         requestUrl = helper.sign(params);

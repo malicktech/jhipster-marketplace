@@ -10,18 +10,28 @@ import java.util.Objects;
  */
 public class MarketItemDTO implements Serializable {
 
-	// add market name in entity not in DTO
-
+	private static final long serialVersionUID = 1L;
+	
 	private String asin;
 	private String title;
 	private String mainImageUrl;
-	private String ean;
-	private String label;
+	
+	private String price;
+	private String lowestNewPrice;
+
 	private String brand;
 	private String model;
-	private String price;
-
 	private String manufacturer;
+	
+		
+
+	public String getLowestNewPrice() {
+		return lowestNewPrice;
+	}
+
+	public void setLowestNewPrice(String lowestNewPrice) {
+		this.lowestNewPrice = lowestNewPrice;
+	}
 
 	public String getAsin() {
 		return asin;
@@ -37,22 +47,6 @@ public class MarketItemDTO implements Serializable {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
-	public String getEan() {
-		return ean;
-	}
-
-	public void setEan(String ean) {
-		this.ean = ean;
 	}
 
 	public String getBrand() {

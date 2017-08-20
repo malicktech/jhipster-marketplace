@@ -39,6 +39,7 @@ import fr.sne.market.service.AmazonMarketService;
 import fr.sne.market.service.dto.CartDTO;
 import fr.sne.market.service.dto.CartItemDTO;
 import fr.sne.market.service.dto.MarketItemDTO;
+import fr.sne.market.service.dto.MarketItemDetailsDTO;
 import fr.sne.market.service.mapper.CartItemMapper;
 import fr.sne.market.service.mapper.CartMapper;
 import fr.sne.market.service.mapper.MarketItemDetailsMapper;
@@ -79,15 +80,26 @@ public class AmazonMarketResource {
 	 */
 	@GetMapping("/amazon/search")
 	@Timed
-	public List<MarketItemDTO> searchAmazonItem(@RequestParam String query,
-			@RequestParam(required = false, defaultValue = "All") String searchindex,
+	public List<MarketItemDTO> searchAmazonItem(@RequestParam(required = false) String query,
+			@RequestParam(required = false) String browsenode, @RequestParam(required = true) String searchindex,
 			@RequestParam(required = false, defaultValue = "1") String itempage) throws Exception {
 
-		log.debug("REST request to search for a page of Customers for query {}", query);
-		log.info("GET - showItemSearch ==> keywords = " + query + " | searchindex = " + searchindex + " | itemPage = "
-				+ itempage);
+		// log.debug("REST Get request to search for a page of Customers for
+		// query {}", query);
+		// log.info("GET - showItemSearch ==> keywords = " + query + " |
+		// searchindex = " + searchindex + " | itemPage = "
+		// + itempage);
 
-		String targetUrl = amazonMarketService.itemSearch(query, searchindex, itempage);
+		String targetUrl;
+		// if(query != null && !query.isEmpty()) {
+		// targetUrl = amazonMarketService.itemSearch(query, searchindex,
+		// itempage);
+		// }
+		if (query == null && browsenode != null && !browsenode.isEmpty() && !searchindex.equalsIgnoreCase("All")) {
+			targetUrl = amazonMarketService.itemNodeSearch(browsenode, searchindex, itempage);
+		} else {
+			targetUrl = amazonMarketService.itemSearch(query, searchindex, itempage);
+		}
 		URI targetURI = new URI(targetUrl);
 
 		ResponseEntity<ItemSearchResponse> result = restTemplate.exchange(targetURI, HttpMethod.GET, null,
@@ -128,7 +140,7 @@ public class AmazonMarketResource {
 	 */
 	@GetMapping("/amazon/lookup/{asin}")
 	@Timed
-	public ResponseEntity<MarketItemDTO> getIAmazonItem(@PathVariable String asin) throws Exception {
+	public ResponseEntity<MarketItemDetailsDTO> getIAmazonItem(@PathVariable String asin) throws Exception {
 
 		log.debug("REST request to get Item Details - ItemLookup asin : {}", asin);
 
@@ -150,6 +162,8 @@ public class AmazonMarketResource {
 
 		// get one item lookup detail
 		Item lookeditem = resultItems.getItem().get(0);
+		// lookeditem.getImageSets().get(0).getImageSet().get(0).getMediumImage().getUrl()
+		// lookeditem.getEditorialReviews().getEditorialReview().get(0).getContent()
 
 		// return lookeditem;
 
@@ -275,9 +289,8 @@ public class AmazonMarketResource {
 	 * Create a new cart
 	 */
 	@GetMapping("/amazon/cart/CartCreate")
-	public ResponseEntity<CartDTO> createAmazonCart(
-			@RequestParam(required = true) String asin, @RequestParam(required = true) String quantity)
-			throws Exception {
+	public ResponseEntity<CartDTO> createAmazonCart(@RequestParam(required = true) String asin,
+			@RequestParam(required = true) String quantity) throws Exception {
 
 		log.info(" GET - /cart/CartCreate");
 		log.info("[asin = " + asin + "] [quantity = " + quantity + "]");
