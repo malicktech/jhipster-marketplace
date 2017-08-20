@@ -1,10 +1,10 @@
 package fr.sne.market.service.mapper;
 
-import com.amazon.api.ECS.client.jax.Image;
-
 import com.amazon.api.ECS.client.jax.Item;
 
 import com.amazon.api.ECS.client.jax.ItemAttributes;
+
+import com.amazon.api.ECS.client.jax.OfferSummary;
 
 import com.amazon.api.ECS.client.jax.Price;
 
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 
     value = "org.mapstruct.ap.MappingProcessor",
 
-    date = "2017-08-16T17:47:58+0000",
+    date = "2017-08-18T19:25:22+0000",
 
     comments = "version: 1.1.0.Final, compiler: Eclipse JDT (IDE) 3.12.3.v20170228-1205, environment: Java 1.8.0_131 (Oracle Corporation)"
 
@@ -45,17 +45,17 @@ public class MarketItemMapperImpl implements MarketItemMapper {
 
         marketItemDTO.setPrice( itemItemAttributesListPriceFormattedPrice( item ) );
 
+        marketItemDTO.setLowestNewPrice( itemOfferSummaryLowestNewPriceFormattedPrice( item ) );
+
         marketItemDTO.setAsin( item.getAsin() );
 
         marketItemDTO.setModel( itemItemAttributesModel( item ) );
-
-        marketItemDTO.setLabel( itemItemAttributesLabel( item ) );
 
         marketItemDTO.setTitle( itemItemAttributesTitle( item ) );
 
         marketItemDTO.setBrand( itemItemAttributesBrand( item ) );
 
-        marketItemDTO.setMainImageUrl( itemMediumImageUrl( item ) );
+        marketItemDTO.setMainImageUrl( item.getMediumImage() != null ? item.getMediumImage().getUrl() : item.getImageSets().get(0).getImageSet().get(0).getMediumImage().getUrl() );
 
         return marketItemDTO;
     }
@@ -110,6 +110,37 @@ public class MarketItemMapperImpl implements MarketItemMapper {
         return formattedPrice;
     }
 
+    private String itemOfferSummaryLowestNewPriceFormattedPrice(Item item) {
+
+        if ( item == null ) {
+
+            return null;
+        }
+
+        OfferSummary offerSummary = item.getOfferSummary();
+
+        if ( offerSummary == null ) {
+
+            return null;
+        }
+
+        Price lowestNewPrice = offerSummary.getLowestNewPrice();
+
+        if ( lowestNewPrice == null ) {
+
+            return null;
+        }
+
+        String formattedPrice = lowestNewPrice.getFormattedPrice();
+
+        if ( formattedPrice == null ) {
+
+            return null;
+        }
+
+        return formattedPrice;
+    }
+
     private String itemItemAttributesModel(Item item) {
 
         if ( item == null ) {
@@ -132,30 +163,6 @@ public class MarketItemMapperImpl implements MarketItemMapper {
         }
 
         return model;
-    }
-
-    private String itemItemAttributesLabel(Item item) {
-
-        if ( item == null ) {
-
-            return null;
-        }
-
-        ItemAttributes itemAttributes = item.getItemAttributes();
-
-        if ( itemAttributes == null ) {
-
-            return null;
-        }
-
-        String label = itemAttributes.getLabel();
-
-        if ( label == null ) {
-
-            return null;
-        }
-
-        return label;
     }
 
     private String itemItemAttributesTitle(Item item) {
@@ -204,30 +211,6 @@ public class MarketItemMapperImpl implements MarketItemMapper {
         }
 
         return brand;
-    }
-
-    private String itemMediumImageUrl(Item item) {
-
-        if ( item == null ) {
-
-            return null;
-        }
-
-        Image mediumImage = item.getMediumImage();
-
-        if ( mediumImage == null ) {
-
-            return null;
-        }
-
-        String url = mediumImage.getUrl();
-
-        if ( url == null ) {
-
-            return null;
-        }
-
-        return url;
     }
 }
 

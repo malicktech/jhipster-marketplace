@@ -1,0 +1,7 @@
+
+
+
+* check exception and error in response : time out, service unavailable
+
+* Checking Request Execution in Product Advertising API
+http://docs.aws.amazon.com/AWSECommerceService/latest/GSG/CheckingRequestExecution.html

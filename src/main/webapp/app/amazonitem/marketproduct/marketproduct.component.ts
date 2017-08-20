@@ -38,21 +38,28 @@ export class MarketproductComponent implements OnInit {
     route.params.subscribe(val => this.ngOnInit())
   }
 
-  // ngOnInit method with the initialization logic inside
-  // called after the constructor and called  after the first ngOnChanges()
+  /* 
+  ngOnInit method with the initialization logic inside
+  called after the constructor and called  after the first ngOnChanges()
+  */
 
   ngOnInit(): void {
     this.sessionCartId = this.localStorage.retrieve('sessionCartId') || this.sessionStorage.retrieve('sessionCartId');
-    if (!!this.sessionCartId) {
-      console.log('sessionCartId :' + this.sessionCartId);
-    }
+
+    /*
+     if (!!this.sessionCartId) {
+       console.log('sessionCartId :' + this.sessionCartId);
+     }
+     */
 
     this.sessionCartIdHmac = this.localStorage.retrieve('sessionCartIdHmac') || this.sessionStorage.retrieve('sessionCartIdHmac');
 
     this.cartLinkEnabled = (!!this.sessionCartId && !!this.sessionCartIdHmac) ? true : false;
 
-    // each time the search data is change you'll get this running
-    //Do what ever you need to refresh your search page
+    /* 
+    each time the search data is change you'll get this running
+    Do what ever you need to refresh your search page
+    */
     console.log('MarketproductComponent ngOnInit - New route params');
 
 
@@ -75,7 +82,9 @@ export class MarketproductComponent implements OnInit {
       //     .then(products => {this.products = products;});
       //   });
 
-      console.log('MarketproductComponent subscribe');
+      // { path: "home/:id", component: HomeComponent },
+      // if (params.id) { } else { }
+
       // this.resetComponentState(); // based on new parameter this time
 
       const market = params['market'] || 'amazon';
@@ -83,8 +92,16 @@ export class MarketproductComponent implements OnInit {
       const query = params['query'] || 'diome';
       const itempage = params['itempage'] || '1';
 
-      this.productService.getProducts(market, searchindex, query, itempage)
-        .then((products) => { this.products = products; });
+      // const browsenode = params['browsenode'];
+      // if (!!browsenode && params. ) { }
+      if (Object.keys(params).indexOf('browsenode') !== -1) {
+        this.productService.getProductsNode(market, searchindex, params['browsenode'], itempage)
+          .then((products) => { this.products = products; });
+      } else {
+        this.productService.getProducts(market, searchindex, query, itempage)
+          .then((products) => { this.products = products; });
+      }
+
 
     });
   }
@@ -100,13 +117,15 @@ export class MarketproductComponent implements OnInit {
     this.location.back();
   }
 
-  // goToPage(pageNum : string) {
-  //   this.router.navigate(['/marketproduct'], { queryParams: { page: pageNum } });
-  // }
+  /*
+    goToPage(pageNum : string) {
+    this.router.navigate(['/marketproduct'], { queryParams: { page: pageNum } });
+    }
+  */
 
   /*
     gotoDetail(): void {
       this.router.navigate(['/marketproduct', this.selectedProduct.asin]);
     }
-    */
+  */
 }

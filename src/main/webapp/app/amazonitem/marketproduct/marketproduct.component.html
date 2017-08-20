@@ -41,20 +41,67 @@ use card, card layout, use card-link
 <jhi-search-form></jhi-search-form>
 
 <h2>Product List</h2>
-<div class="container">
-  <div class="products row">
-    <div class="card-group">
-      <!--col-sm-4 col-md-3-->
-      <div *ngFor="let product of products" class="card" style="width: 20rem;">
-        <img src="{{product.mainImageUrl}}" alt="Card image cap" class="card-img-top img-fluid mx-auto">
-        <div class="card-block">
-          <div class="card-title">{{product.title}}</div>
-          <!--<h6 class="text-center">{{product.asin}}</h6>-->
-          <a class="text-center" [routerLink]="['/product', product.asin]">{{product.asin}}</a>
-          <p class="col-sm-12 text-center">{{product.price}}</p>
-          <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-          <!--<a href="#" class="btn btn-primary text-center" routerLink="['product', {{product.asin}}]" (click)="gotoDetail()">View Details</a>-->
-
+<div class="container-fluid">
+  <div class="row">
+    <div class=" col-md-2">
+      <div class="card">
+        <ul class="nav flex-column">
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" [routerLink]="['/marketproduct', { browsenode: '13910711', searchindex: 'Electronics'} ]">
+              <i class="fa fa-mobile" aria-hidden="true"></i>
+              <span>Smartphone</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" [routerLink]="['/marketproduct', { browsenode: '429882031', searchindex: 'Electronics'} ]">
+              <i class="fa fa-tablet" aria-hidden="true"></i>
+              <span>Tablettes Tactiles</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" [routerLink]="['/marketproduct', { browsenode: '429879031', searchindex: 'Electronics'} ]">
+              <i class="fa fa-laptop" aria-hidden="true"></i>
+              <span>Ordinateurs Portable</span>
+            </a>
+          </li>
+           <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" [routerLink]="['/marketproduct', { browsenode: '514848031', searchindex: 'Electronics'} ]">
+              <i class="fa fa-laptop" aria-hidden="true"></i>
+              <span>Ordinateurs de bureau & Ecrans</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" [routerLink]="['/marketproduct', { browsenode: '13910681', searchindex: 'Electronics'} ]">
+              <i class="fa fa-laptop" aria-hidden="true"></i>
+              <span>TV & Home cinéma</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Electroméngager</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="products row">
+        <div class="card-deck">
+          <div *ngFor="let product of products" class="col-sm-6 col-md-3">
+            <div class="card">
+              <img src="{{product.mainImageUrl}}" alt="Card image cap" class="card-img-top img-fluid mx-auto">
+              <div class="card-block">
+                <!--see : https://v4-alpha.getbootstrap.com/components/card/#titles-text-and-links-->
+                <!--<h6 class="text-center">{{product.asin}}</h6>-->
+                <!--<p class="card-text">With description ...ditional content.</p>-->
+                <a class="text-center" [routerLink]="['/product', product.asin]">{{product.title | slice:0:50 }}</a>
+                <p class="col-sm-12 text-right">{{product.price}}</p>
+                <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+                <!--<a href="#" class="btn btn-primary text-center" routerLink="['product', {{product.asin}}]" (click)="gotoDetail()">View Details</a>-->
+              </div>
+              <!--<div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>-->
+            </div>
+          </div>
         </div>
       </div>
     </div>

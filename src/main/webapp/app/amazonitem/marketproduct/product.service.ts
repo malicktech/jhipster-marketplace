@@ -21,11 +21,22 @@ export class ProductService {
         const path = `${market}/search?query=${query}&searchindex=${searchindex}&itempage=${itempage}`;
         const url = `${this.apiUrl}/${path}`;
 
-        console.log(url);
+        // console.log(url);
         return this.http.get(url) // returns an RxJS Observable
             .toPromise() // converted the Observable to a Promise
             .then((response) => response.json() as Product[]) // Extracting the data in the then callback
             .catch(this.handleError); // catch server failures
+    }
+
+    getProductsNode(market: string, searchindex: string, browsenode: string, itempage: string): Promise<Product[]> { // Promise-returning
+        const path = `${market}/search?browsenode=${browsenode}&searchindex=${searchindex}&itempage=${itempage}`;
+        const url = `${this.apiUrl}/${path}`;
+
+        // console.log(url);
+        return this.http.get(url)
+            .toPromise()
+            .then((response) => response.json() as Product[])
+            .catch(this.handleError);
     }
 
     getProduct(market: string, asin: String): Promise<Product> {
