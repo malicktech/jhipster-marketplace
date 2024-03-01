@@ -1,0 +1,1026 @@
+repo_name: malicktech/jhipster-marketplace
+report_id: cc2ac6b30c5cc860fb61a9ea7f201bf9
+version: 0.1
+repo_type: Public
+timestamp: '2024-03-01T22:45:20+00:00'
+requested_by: malicktech
+provider: github
+branch: master
+detected_tools_count: 79
+tools:
+- name: Java
+  description: A concurrent, class-based, object-oriented, language specifically designed
+    to have as few implementation dependencies as possible
+  website_url: https://www.java.com
+  version: '1.8'
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/995/K85ZWV2F.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/pom.xml
+  detection_source: Repo Metadata
+  last_updated_by: citizendiop
+  last_updated_on: 2017-05-11 22:57:03.000000000 Z
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace
+  detection_source: Repo Metadata
+- name: Scala
+  description: A pure-bred object-oriented language that runs on the JVM
+  website_url: http://www.scala-lang.org/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1012/scala.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace
+  detection_source: Repo Metadata
+- name: TypeScript
+  description: A superset of JavaScript that compiles to clean JavaScript output
+  website_url: http://www.typescriptlang.org
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1612/bynNY5dJ.jpg
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace
+  detection_source: Repo Metadata
+- name: Angular
+  description: A platform for building mobile and desktop web applications
+  website_url: https://angular.io
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Javascript MVC Frameworks
+  image_url: https://img.stackshare.io/service/3745/cb8U-gL6_400x400.jpg
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: Bootstrap
+  description: Simple and flexible HTML, CSS, and JS for popular UI components and
+    interactions
+  website_url: http://getbootstrap.com/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Front-End Frameworks
+  image_url: https://img.stackshare.io/service/1101/C9QJ7V3X.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: Node.js
+  description: A platform built on Chrome's JavaScript runtime for easily building
+    fast, scalable network applications
+  website_url: http://nodejs.org/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Frameworks (Full Stack)
+  image_url: https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: RxJS
+  description: The Reactive Extensions for JavaScript
+  website_url: http://reactivex.io/rxjs/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Concurrency Frameworks
+  image_url: https://img.stackshare.io/service/1796/984368.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: citizendiop
+  last_updated_on: 2017-05-11 22:57:03.000000000 Z
+- name: Sass
+  description: Syntactically Awesome Style Sheets
+  website_url: http://sass-lang.com/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: CSS Pre-processors / Extensions
+  image_url: https://img.stackshare.io/service/1171/jCR2zNJV.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: citizendiop
+  last_updated_on: 2017-05-11 22:57:03.000000000 Z
+- name: css-loader
+  description: Helps webpack to collect CSS from all the css files
+  website_url: https://github.com/webpack-contrib/css-loader
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: CSS Pre-processors / Extensions
+  image_url: https://img.stackshare.io/service/8074/default_d2b16fd6997fb2e164de645a34f9b8d5a880d999.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: jQuery
+  description: The Write Less, Do More, JavaScript Library.
+  website_url: http://jquery.com/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript UI Libraries
+  image_url: https://img.stackshare.io/service/1021/lxEKmMnB_400x400.jpg
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: citizendiop
+  last_updated_on: 2017-05-11 22:57:03.000000000 Z
+- name: Docker
+  description: Enterprise Container Platform for High-Velocity Innovation.
+  website_url: https://www.docker.com/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Virtual Machine Platforms & Containers
+  image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace
+  detection_source: Repo Metadata
+- name: Jasmine
+  description: DOM-less simple JavaScript testing framework
+  website_url: http://jasmine.github.io/
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Javascript Testing Framework
+  image_url: https://img.stackshare.io/service/831/7c0b595409af531b9cdeb07f8c513e8b.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: Karma
+  description: Spectacular Test Runner for JavaScript
+  website_url: http://karma-runner.github.io/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Browser Testing
+  image_url: https://img.stackshare.io/service/1420/TidYGd6a.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: Logback
+  description: A logging framework for Java applications
+  website_url: https://logback.qos.ch/
+  open_source: false
+  hosted_saas: false
+  category: Monitoring
+  sub_category: Log Management
+  image_url: https://img.stackshare.io/service/2923/05518ecaa42841e834421e9d6987b04f_400x400.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/src/test/gatling/conf/logback.xml
+  detection_source: src/test/gatling/conf/logback.xml
+  last_updated_by: citizendiop
+  last_updated_on: 2017-05-11 22:57:03.000000000 Z
+- name: PhantomJS
+  description: Scriptable Headless WebKit
+  website_url: https://phantomjs.org/
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Headless Browsers
+  image_url: https://img.stackshare.io/service/1832/phantomjs.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: Protractor
+  description: End-to-end test framework for Angular and AngularJS applications
+  website_url: http://angular.github.io/protractor
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Javascript Testing Framework
+  image_url: https://img.stackshare.io/service/1754/protractor-logo1.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: TSLint
+  description: An extensible linter for the TypeScript language
+  website_url: https://github.com/palantir/tslint
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Code Review
+  image_url: https://img.stackshare.io/service/5561/303157.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: citizendiop
+  last_updated_on: 2017-05-11 22:57:03.000000000 Z
+- name: Webpack
+  description: A bundler for javascript and friends
+  website_url: http://webpack.js.org
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: JS Build Tools / JS Task Runners
+  image_url: https://img.stackshare.io/service/1682/IMG_4636.PNG
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: Yarn
+  description: A new package manager for JavaScript
+  website_url: https://yarnpkg.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/5848/44mC-kJ3.jpg
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/yarn.lock
+  detection_source: yarn.lock
+  last_updated_by: citizendiop
+  last_updated_on: 2017-05-11 22:57:03.000000000 Z
+- name: npm
+  description: The package manager for JavaScript.
+  website_url: https://www.npmjs.com/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: citizendiop
+  last_updated_on: 2017-05-11 22:57:03.000000000 Z
+- name: Apache Camel
+  description: A versatile open source integration framework
+  website_url: https://camel.apache.org/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Application Hosting
+  sub_category: Platform as a Service
+  image_url: https://img.stackshare.io/service/3276/xWt1RFo6_400x400.jpg
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/src/main/resources/config/application.yml
+  detection_source: src/main/resources/config/application.yml
+  last_updated_by: citizendiop
+  last_updated_on: 2017-05-11 22:57:03.000000000 Z
+- name: Elasticsearch
+  description: Open Source, Distributed, RESTful Search Engine
+  website_url: https://www.elastic.co/products/elasticsearch
+  open_source: true
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Search as a Service
+  image_url: https://img.stackshare.io/service/841/Image_2019-05-20_at_4.58.04_PM.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/src/main/docker/elasticsearch.yml
+  detection_source: src/main/docker/elasticsearch.yml
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-06-11 18:59:29.000000000 Z
+- name: "@angular/cli"
+  description: CLI tool for Angular
+  package_url: https://www.npmjs.com/@angular/cli
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16000/default_976847109ccfe67d00b33d9ff71329b6e82f5f89.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@angular/common"
+  description: Angular - commonly needed directives and services
+  package_url: https://www.npmjs.com/@angular/common
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15913/default_ac622bc364a601d766b9a6f6039f191492f54d65.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@angular/compiler"
+  description: Angular - the compiler library
+  package_url: https://www.npmjs.com/@angular/compiler
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15917/default_4040fefea2f98006727f63d042275b96a275ab2d.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@angular/compiler-cli"
+  description: Angular - the compiler CLI for Node.js
+  package_url: https://www.npmjs.com/@angular/compiler-cli
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15927/default_e0a4fb1126d7400f419f0931cf1669947a5bc552.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@angular/forms"
+  description: Angular - directives and services for creating forms
+  package_url: https://www.npmjs.com/@angular/forms
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15944/default_8b5680d4e916298d08363c291a0d6e34c07ceb15.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@angular/http"
+  description: Angular - the http service
+  package_url: https://www.npmjs.com/@angular/http
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15977/default_8b5680d4e916298d08363c291a0d6e34c07ceb15.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@angular/platform-browser"
+  description: Angular - library for using Angular in a web browser
+  package_url: https://www.npmjs.com/@angular/platform-browser
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15921/default_54b691c123fc8979741e800e4dcd3936c0f3b246.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@angular/platform-browser-dynamic"
+  description: Angular - library for using Angular in a web browser with JIT compilation
+  package_url: https://www.npmjs.com/@angular/platform-browser-dynamic
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15933/default_b45165a5d30e541ab11711a34a78209b3e8ed7fd.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@angular/router"
+  description: Angular - the routing library
+  package_url: https://www.npmjs.com/@angular/router
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15965/default_8b5680d4e916298d08363c291a0d6e34c07ceb15.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@ng-bootstrap/ng-bootstrap"
+  description: Angular powered Bootstrap
+  package_url: https://www.npmjs.com/@ng-bootstrap/ng-bootstrap
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17486/default_10a98ebc0146ab94b0fde6f7013c1279c82e4135.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@types/jasmine"
+  description: TypeScript definitions for Jasmine
+  package_url: https://www.npmjs.com/@types/jasmine
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15924/default_ac622bc364a601d766b9a6f6039f191492f54d65.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@types/node"
+  description: TypeScript definitions for Node.js
+  package_url: https://www.npmjs.com/@types/node
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15809/default_5e5e8ac63beda29f31f1844df64d4b8247570a66.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: "@types/selenium-webdriver"
+  description: TypeScript definitions for Selenium WebDriverJS
+  package_url: https://www.npmjs.com/@types/selenium-webdriver
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17263/default_78541a280e8cac42279d6c363e71e5b8f462e962.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: angular2-template-loader
+  description: Angular2 webpack loader that inlines your angular2 templates and stylesheets
+    into angular components
+  package_url: https://www.npmjs.com/angular2-template-loader
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16579/default_5a21421012fa20e57fe0aeab31228f42e7118abc.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: awesome-typescript-loader
+  description: Awesome TS loader for webpack
+  package_url: https://www.npmjs.com/awesome-typescript-loader
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16085/default_d947c1690e032a288145c7e2491999eab3ea8ede.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: browser-sync
+  description: Live CSS Reload &amp; Browser Syncing
+  package_url: https://www.npmjs.com/browser-sync
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16034/default_a9b6ac3c2fe43713f9a8e43d4668d0352ad0d247.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: browser-sync-webpack-plugin
+  description: BrowserSync and Webpack integration
+  package_url: https://www.npmjs.com/browser-sync-webpack-plugin
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/18027/default_7826192e433c1035ad42082e7f65b825c34bb056.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: codelyzer
+  description: Linting for Angular applications
+  package_url: https://www.npmjs.com/codelyzer
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15956/default_8b5680d4e916298d08363c291a0d6e34c07ceb15.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: copy-webpack-plugin
+  description: Copy files &amp;&amp; directories with webpack
+  package_url: https://www.npmjs.com/copy-webpack-plugin
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15941/default_b45165a5d30e541ab11711a34a78209b3e8ed7fd.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: core-js
+  description: Standard library
+  package_url: https://www.npmjs.com/core-js
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15869/default_7c39a83d4acd952df89b1ebfdb94c8646324fbf1.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: exports-loader
+  description: Exports loader module for webpack
+  package_url: https://www.npmjs.com/exports-loader
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16572/default_aaf5839b9bd35cf60ebf8e1b59d64d8e3b398aaa.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: extract-text-webpack-plugin
+  description: Extract text from bundle into a file
+  package_url: https://www.npmjs.com/extract-text-webpack-plugin
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15855/default_a2f722724df977d0f7752839e5d8845ab41f69d5.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: file-loader
+  description: A file loader module for webpack
+  package_url: https://www.npmjs.com/file-loader
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15834/default_4479dbac220be99e50e724b2df6cf415241d71fd.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: font-awesome
+  description: The iconic font and CSS framework
+  package_url: https://www.npmjs.com/font-awesome
+  license: OFL-1.1,MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16160/default_77b54a203c743d16eddb6b6390cba17218454fa0.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: html-loader
+  description: Html loader module for webpack
+  package_url: https://www.npmjs.com/html-loader
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16055/default_261820f5687b4c88a3e8f95c71b5e8dccd34c1d7.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: html-webpack-plugin
+  description: Simplifies creation of HTML files to serve your webpack bundles
+  package_url: https://www.npmjs.com/html-webpack-plugin
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15841/default_5e5e8ac63beda29f31f1844df64d4b8247570a66.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: jasmine-core
+  description: Official packaging of Jasmine's core files for use by Node.js projects
+  package_url: https://www.npmjs.com/jasmine-core
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15905/default_3af1504b6f77c55205ba630fe08c472f43b95f6e.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: jasmine-reporters
+  description: Reporters for the Jasmine BDD Framework
+  package_url: https://www.npmjs.com/jasmine-reporters
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17569/default_661ab15cb9ea1663765f3e16ee70a1d2d50118d1.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: karma-chrome-launcher
+  description: A Karma plugin. Launcher for Chrome and Chrome Canary
+  package_url: https://www.npmjs.com/karma-chrome-launcher
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15860/default_6743ba96cf149a3c3c68a185199f9705d6eff80e.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: karma-coverage
+  description: A Karma plugin. Generate code coverage
+  package_url: https://www.npmjs.com/karma-coverage
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15951/default_b45165a5d30e541ab11711a34a78209b3e8ed7fd.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: karma-jasmine
+  description: A Karma plugin - adapter for Jasmine testing framework
+  package_url: https://www.npmjs.com/karma-jasmine
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15886/default_7c39a83d4acd952df89b1ebfdb94c8646324fbf1.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: karma-junit-reporter
+  description: A Karma plugin. Report results in junit xml format
+  package_url: https://www.npmjs.com/karma-junit-reporter
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16695/default_4b738bf1758d38dddd276589bbea47fca5a990df.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: karma-phantomjs-launcher
+  description: A Karma plugin. Launcher for PhantomJS
+  package_url: https://www.npmjs.com/karma-phantomjs-launcher
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15947/default_54b691c123fc8979741e800e4dcd3936c0f3b246.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: karma-remap-istanbul
+  description: Call remap-istanbul as a karma reporter
+  package_url: https://www.npmjs.com/karma-remap-istanbul
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16981/default_3823aba25646a3f105cc15ee9df24fdf78972314.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: karma-sourcemap-loader
+  description: Karma plugin that locates and loads existing javascript source map
+    files
+  package_url: https://www.npmjs.com/karma-sourcemap-loader
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16011/default_7a465bc85b23fd837cbc038fd1d504632c41a884.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: karma-webpack
+  description: Use webpack with karma
+  package_url: https://www.npmjs.com/karma-webpack
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15955/default_f49d4c116f8ea0155f4d92673b084378bba02760.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: node-sass
+  description: Wrapper around libsass
+  package_url: https://www.npmjs.com/node-sass
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15827/default_db4a7791d2f1174547374b9b587bc10fec088a5a.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: phantomjs-prebuilt
+  description: Headless WebKit with JS API
+  package_url: https://www.npmjs.com/phantomjs-prebuilt
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16054/default_5fd43aeff4d6a935abc13737de01a0355210499d.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: postcss-loader
+  description: PostCSS loader for webpack
+  package_url: https://www.npmjs.com/postcss-loader
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15876/default_6743ba96cf149a3c3c68a185199f9705d6eff80e.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: reflect-metadata
+  description: Polyfill for Metadata Reflection API
+  package_url: https://www.npmjs.com/reflect-metadata
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16019/default_7a88bebb451873cc63bd99007de5bd3bb8ef85de.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: citizendiop
+  last_updated_on: 2017-05-11 22:57:03.000000000 Z
+- name: rimraf
+  description: A deep deletion module for node
+  package_url: https://www.npmjs.com/rimraf
+  license: ISC
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15807/default_db4a7791d2f1174547374b9b587bc10fec088a5a.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: sass-loader
+  description: Sass loader for webpack
+  package_url: https://www.npmjs.com/sass-loader
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15842/default_b71c906aeda030a5e2f1fe40bf12a93be52404ab.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: sockjs-client
+  description: SockJS-client is a browser JavaScript library that provides a WebSocket-like
+    object
+  package_url: https://www.npmjs.com/sockjs-client
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17551/default_8d32936cb624bf7f51657c1540463db0a3c4106e.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: style-loader
+  description: Style loader module for webpack
+  package_url: https://www.npmjs.com/style-loader
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15822/default_004658cda9b38934f2871435e9dc15608c86e8be.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: tether
+  description: A client-side library to make absolutely positioned elements attach
+    to elements in the page efficiently
+  package_url: https://www.npmjs.com/tether
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17789/default_a53af9d6b5a4c8c6e8d5f8494d76a8d2efd3e660.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: citizendiop
+  last_updated_on: 2017-05-11 22:57:03.000000000 Z
+- name: to-string-loader
+  description: To-string loader for webpack
+  package_url: https://www.npmjs.com/to-string-loader
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16800/default_6e51a44775c61dcb2888547ad406a2f0cf2c344e.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: ts-node
+  description: TypeScript execution environment and REPL for node.js
+  package_url: https://www.npmjs.com/ts-node
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15830/default_6743ba96cf149a3c3c68a185199f9705d6eff80e.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: tslint-loader
+  description: Tslint loader for webpack
+  package_url: https://www.npmjs.com/tslint-loader
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16395/default_4cc3f31b8c64a6268fc123f0965a09d1b11180af.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: webpack-dev-server
+  description: Serves a webpack app. Updates the browser on changes
+  package_url: https://www.npmjs.com/webpack-dev-server
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15821/default_64690bc3e49bcee57094e51a7a26c620c48dbd82.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: webpack-merge
+  description: Variant of merge that's useful for webpack configuration
+  package_url: https://www.npmjs.com/webpack-merge
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15925/default_e0a4fb1126d7400f419f0931cf1669947a5bc552.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: webpack-notifier
+  description: Webpack + node-notifier = build status system notifications
+  package_url: https://www.npmjs.com/webpack-notifier
+  license: ISC
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17675/default_e87994647b10b361432e73d1831e5982307760e2.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: webpack-visualizer-plugin
+  description: Visualize and analyze your Webpack bundle to see which modules are
+    taking up space and which might be duplicates
+  package_url: https://www.npmjs.com/webpack-visualizer-plugin
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/18277/default_98150e36575f7f7c88dc8bc97b4d490739946663.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: write-file-webpack-plugin
+  description: Forces webpack-dev-server to write bundle files to the file system
+  package_url: https://www.npmjs.com/write-file-webpack-plugin
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17727/default_2f87d5add351cc79d3471e48bc0dd6f92c1288ad.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: xml2js
+  description: Simple XML to JavaScript object converter
+  package_url: https://www.npmjs.com/xml2js
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16122/default_efe4f0184d007a28e793d89a59e058b742bc9177.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
+- name: zone.js
+  description: Zones for JavaScript
+  package_url: https://www.npmjs.com/zone.js
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15915/default_59a1b5716eefa3750c20936c3d53ff13a6390ee1.png
+  detection_source_url: https://github.com/malicktech/jhipster-marketplace/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Malick DIOP
+  last_updated_on: 2017-08-01 22:42:13.000000000 Z
